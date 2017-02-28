@@ -1,0 +1,35 @@
+package profile;
+
+public enum Technologies {
+
+	C ,
+	CPLUSPLUS ,
+	CSHARP,
+	OBJECTIVEC,
+	FSHARP,
+	JAVACORE,
+	JAVAEE,
+	JAVAANDROID,
+	PYTHON,
+	RUBY,
+	JAVASCRIPT,
+	PHP,
+	HTML,
+	CSS,
+	HASKELL,
+	SQL,
+	DATABASE,
+	NOSQL,
+	VISUALBASIC,
+    AJAX, 
+    JSON,
+    OOP,
+    DESIGNPATHERNS,
+    MULTYTHREADING,
+    JPA,
+    JQUARY,
+    HIBERNATE,
+    POJO,
+    GIT
+    
+ }
