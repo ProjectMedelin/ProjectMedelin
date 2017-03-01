@@ -2,13 +2,18 @@ package ads;
 
 import java.util.ArrayList;
 
-public class Offer extends Ads{
-	
-	private boolean isAccepted;
+public class Offer {
 
-	public Offer(String title, String desctription, String requirenments, String conditions, ArrayList<Enum> reqTech) {
-		super(title, desctription, requirenments, conditions, reqTech);
-		isAccepted = false;
-	}
+	private boolean isAccepted;
+	private boolean isFinished;
+	private Ads ads;
+
+	public Offer(Ads ads) {
+      this.isAccepted=false;
+      this.isFinished=false;
+      this.ads=ads;
+     }
 	
+	
+
 }

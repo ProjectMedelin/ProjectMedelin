@@ -1,30 +1,53 @@
 package profile;
 
 import java.io.File;
+import java.util.ArrayList;
 
-public abstract class Profile {
+import interfaces.TechOwner;
 
-	public class FeedBack {
-		private String feedback;
-		private double valuation;
-
-		public FeedBack(String feedback, double valuation) {
-			// if(feedback!=null&&!feedback.isEmpty()){
-			this.feedback = feedback;
-			this.valuation = valuation;
-		}
-
-	}
+public abstract class Profile extends TechOwner.TechAdder {
 
 	// HashMap(Emplooyer, HashMap(Double, String)) feedback
 	private String name;
-	protected double rating;
 	protected File profilePicture;
-	protected FeedBack feedback;
 	protected String about;
+	private File video;
+	private String website;
 
 	public Profile(String name) {
 		this.name = name;
+	}
+
+	public void addProfilePic(File profilePic) {
+		System.out.println("Pls add profile picture");
+		if (profilePic.isFile()) {
+			this.profilePicture = profilePic;
+		} else {
+			addProfilePic(profilePic);
+		}
+	}
+
+	public void addAboutDescription(String about) {
+		System.out.println("Pls add about information");
+		if (about != null && !about.isEmpty()) {
+			this.about = about;
+		}
+	}
+
+	public void addVideo(File video) {
+		System.out.println("Pls add your video");
+		if (video.isFile()) {
+			this.video = video;
+		} else {
+			addProfilePic(video);
+		}
+	}
+
+	public void addWebsite(String web) {
+		System.out.println("Pls add your website");
+		if (web != null && !web.isEmpty()) {
+			this.website = web;
+		}
 	}
 
 }

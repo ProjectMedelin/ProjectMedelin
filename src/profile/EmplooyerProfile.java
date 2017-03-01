@@ -1,23 +1,20 @@
 package profile;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class EmplooyerProfile extends Profile {
 
-	enum EmplooyerType {
-		COMPANY, 
-		PRIVATE
+	public enum EmplooyerType {
+		COMPANY, PRIVATE
 	}
 
 	private EmplooyerType type;
-	private String website;
-	private Technologies technologies;
-	// private ? skype
-	// private ? video
 
-	public EmplooyerProfile(String name) {
+	public EmplooyerProfile(String name, EmplooyerType type) {
 		super(name);
-		// TODO Auto-generated constructor stub
+		this.type = type;
 	}
 
 }
