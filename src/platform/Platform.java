@@ -7,8 +7,8 @@ import java.util.Scanner;
 import org.omg.CORBA.PRIVATE_MEMBER;
 
 import ads.Ads;
-import ads.Offer;
 import ads.Ads.Experience;
+import ads.Offer;
 import profile.EmplooyerProfile.EmplooyerType;
 import profile.Profile;
 import profile.ProfileFactory;
@@ -16,6 +16,7 @@ import searchEngine.SearchEngine;
 import users.Developer;
 import users.Employer;
 import users.User;
+import users.User.FeedBack;
 import users.UserFactory;
 
 public class Platform {
@@ -127,8 +128,6 @@ public class Platform {
 		return empCatalog;
 	}
 
-	// Ads ad = new Ads(title, desctription, requirenments, conditions, xp);
-
 	public void createAdds(Employer emp) {
 		System.out.println("Enter title: ");
 		String title = sc.nextLine();
@@ -180,8 +179,6 @@ public class Platform {
 
 	}
 	
-	
-
 	public void sendOffer(Developer developer, Employer emp) {
 		int counter = 0;
 		for (Ads ads2 : emp.giveMeAds()) {
@@ -195,16 +192,19 @@ public class Platform {
 		emp.setOffer(offer);
 		developer.addOffers(offer);
 	}
-
+	//podava se ofer ot list na developera i se setva kato finished.
+	public void markJobAsFinished(Offer offer){
+		offer.setFinished(true);
+		sendFeedback(offer.getAds().getEmployer());
+		
+	}
 	
-	
-	public void markJobAsFinished(Developer dev){
-		int counter=0;
-		for (Offer offs : dev.getReceivedOffers()) {
-			System.out.println(counter + " - " + offs);
-			counter++;
-		}
-		System.out.println("Please choose number of offer");
+	private void sendFeedback(Employer employer){
+		String feed = sc.nextLine();
+		Double rating = sc.nextDouble();
+		
+		FeedBack feedback = new FeedBack(feed, rating);
+		employer.addFeedBack(feedback);
 		
 	}
 }

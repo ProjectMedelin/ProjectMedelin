@@ -48,6 +48,10 @@ public class Ads implements TechOwner {
 		return this.reqTech;
 	}
 
+	public Employer getEmployer() {
+		return employer;
+	}
+
 	@Override
 	public String toString() {
 		return "Ads [experience=" + experience + ", title=" + title + ", desctription=" + desctription

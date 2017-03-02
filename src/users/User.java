@@ -7,7 +7,7 @@ import profile.Profile;
 
 public abstract class User {
 
-	public class FeedBack {
+	public static class FeedBack {
 		private String feedback;
 		private double rating;
 
