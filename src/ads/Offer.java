@@ -9,11 +9,25 @@ public class Offer {
 	private Ads ads;
 
 	public Offer(Ads ads) {
-      this.isAccepted=false;
-      this.isFinished=false;
-      this.ads=ads;
-     }
-	
-	
+		this.isAccepted = false;
+		this.isFinished = false;
+		this.ads = ads;
+	}
+
+	public boolean isAccepted() {
+		return this.isAccepted;
+	}
+
+	public void setAccepted(boolean isAccepted) {
+		this.isAccepted = isAccepted;
+	}
+
+	public boolean isFinished() {
+		return this.isFinished;
+	}
+
+	public void setFinished(boolean isFinished) {
+		this.isFinished = isFinished;
+	}
 
 }

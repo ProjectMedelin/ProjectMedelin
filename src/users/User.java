@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import interfaces.TechOwner;
 import profile.Profile;
 
-public abstract class User  {
+public abstract class User {
 
 	public class FeedBack {
 		private String feedback;
@@ -51,5 +51,16 @@ public abstract class User  {
 		}
 
 	}
+	
+	public Profile getProfile() {
+		return this.profile;
+	}
 
+	public String getEmail() {
+		return this.email;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
 }
