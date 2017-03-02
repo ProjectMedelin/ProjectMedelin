@@ -39,6 +39,8 @@ public abstract class User {
 	public void addFeedBack(FeedBack feedback) {
 		this.feedback.add(feedback);
 	}
+	
+	
 
 	public void updateRating() {
 		for (FeedBack feeds : feedback) {
@@ -51,7 +53,7 @@ public abstract class User {
 		}
 
 	}
-	
+
 	public Profile getProfile() {
 		return this.profile;
 	}
@@ -63,4 +65,10 @@ public abstract class User {
 	public String getPassword() {
 		return this.password;
 	}
+
+	@Override
+	public String toString() {
+		return "User name " + profile.getName() + ", email=" + email + ", password=" + "********" + "]";
+	}
+
 }
