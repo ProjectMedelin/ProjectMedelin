@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import interfaces.TechOwner;
 
-public abstract class Profile extends TechOwner.TechAdder {
+public abstract class Profile {
 
 	// HashMap(Emplooyer, HashMap(Double, String)) feedback
 	private String name;

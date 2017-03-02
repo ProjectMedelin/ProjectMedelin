@@ -6,11 +6,12 @@ import java.util.Scanner;
 import ads.Ads;
 import ads.Interview;
 import ads.Offer;
+import interfaces.TechOwner;
 import profile.DeveloperProfile;
 import profile.Profile;
 import profile.Technologies;
 
-public class Developer extends User {
+public class Developer extends User implements TechOwner{
 
 	private static int counter = 0;
 	Scanner sc = new Scanner(System.in);

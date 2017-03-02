@@ -8,7 +8,7 @@ import interfaces.TechOwner;
 import profile.Technologies;
 import users.Employer;
 
-public class Ads extends TechOwner.TechAdder {
+public class Ads implements TechOwner {
 
 	public enum Experience {
 		INTERN, JUNIOR, EXPERIENCED

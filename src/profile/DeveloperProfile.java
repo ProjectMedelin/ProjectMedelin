@@ -3,14 +3,15 @@ package profile;
 import java.io.File;
 import java.util.ArrayList;
 
-public class DeveloperProfile extends Profile {
+import interfaces.TechOwner;
+
+public class DeveloperProfile extends Profile implements TechOwner {
 
     
 	private ArrayList<Technologies> technologies;
 	private File CV;
 	private String github;
 	private String linkedIn;
-	// private ? skype
 
 	public DeveloperProfile(String name) {
 		super(name);

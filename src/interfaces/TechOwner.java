@@ -3,16 +3,13 @@ package interfaces;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT;
+
 import profile.Technologies;
 
 public interface TechOwner {
 
-	public ArrayList<Technologies> addTechno();
-
-	public static class TechAdder implements TechOwner {
-
-		@Override
-		public ArrayList<Technologies> addTechno() {
+		 default public ArrayList<Technologies> addTechno() {
 
 			ArrayList<Technologies> tech = new ArrayList<>();
 			Scanner sc = new Scanner(System.in);
@@ -35,6 +32,5 @@ public interface TechOwner {
 
 			return tech;
 		}
-
-	}
+	
 }
