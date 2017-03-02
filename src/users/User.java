@@ -52,6 +52,8 @@ public abstract class User {
 
 	}
 	
+	
+	
 	public Profile getProfile() {
 		return this.profile;
 	}

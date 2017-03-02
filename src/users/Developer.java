@@ -15,7 +15,6 @@ public class Developer extends User {
 	private ArrayList<Offer> receivedOffers;
 	private ArrayList<Interview> interviews;
 	private ArrayList<Employer> emplooyers;
-	
 
 	public Developer(Profile profile, String email, String password) {
 		super(profile, email, password);
@@ -30,4 +29,15 @@ public class Developer extends User {
 
 	}
 
+	public ArrayList<Offer> getReceivedOffers() {
+		return this.receivedOffers;
+	}
+
+	public void addOffers(Offer offer) {
+		this.receivedOffers.add(offer);
+	}
+	
+	public void recieveFeedBack(){
+		
+	}
 }

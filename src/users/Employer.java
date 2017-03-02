@@ -1,6 +1,7 @@
 package users;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import ads.Ads;
 import ads.Ads.Experience;
@@ -12,6 +13,7 @@ import profile.Technologies;
 
 public class Employer extends User {
 
+	Scanner sc = new Scanner(System.in);
 	private ArrayList<Ads> ads;
 	private ArrayList<Offer> offers;
 	private ArrayList<Developer> developers;
@@ -24,14 +26,10 @@ public class Employer extends User {
 
 	}
 
-	
-	
 	public void addDeveloper(Developer developer) {
 		this.developers.add(developer);
 	}
 
-	
-	
 	public void createAdds(String title, String desctription, String requirenments, String conditions, Experience xp) {
 		Ads ad = new Ads(title, desctription, requirenments, conditions, xp);
 		this.ads.add(ad);
@@ -43,8 +41,17 @@ public class Employer extends User {
 	}
 
 	public void sendOffer(Developer developer) {
-		
-
+		int counter = 1;
+		for (Ads ads2 : ads) {
+			System.out.println(counter + " - " + ads2);
+			counter++;
+		}
+		System.out.println("Please enter a number for ads ");
+		int help = sc.nextInt();
+		Ads add = this.ads.get(counter - (counter - help));
+		Offer offer = new Offer(add);
+		this.offers.add(offer);
+		developer.addOffers(offer);
 	}
 
 	public ArrayList<Developer> searchDeveloper(Platform platform, ArrayList<Technologies> req) {
@@ -60,5 +67,4 @@ public class Employer extends User {
 		return "Employer [ads=" + ads + ", offers=" + offers + ", developers=" + developers + "]";
 	}
 
-	
 }
