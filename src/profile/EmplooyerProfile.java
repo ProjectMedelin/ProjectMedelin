@@ -16,5 +16,5 @@ public class EmplooyerProfile extends Profile {
 		super(name);
 		this.type = type;
 	}
-
+	
 }

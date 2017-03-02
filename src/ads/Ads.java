@@ -40,6 +40,10 @@ public class Ads extends TechOwner.TechAdder {
 
 	}
 
+	public void adEmployer(Employer emp) {
+		this.employer = emp;
+	}
+
 	public ArrayList<Technologies> getArray() {
 		return this.reqTech;
 	}
@@ -47,8 +51,8 @@ public class Ads extends TechOwner.TechAdder {
 	@Override
 	public String toString() {
 		return "Ads [experience=" + experience + ", title=" + title + ", desctription=" + desctription
-				+ ", requirenments=" + requirenments + ", conditions=" + conditions + ", reqTech=" + reqTech
-				+ ", employer=" + employer.getProfile().getName() + "]";
+				+ ", requirenments=" + requirenments + ", conditions=" + conditions + ", employer="
+				+ employer.getProfile().getName() + "]";
 	}
 
 }

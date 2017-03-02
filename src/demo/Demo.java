@@ -1,21 +1,25 @@
 package demo;
 
-import java.security.KeyRep.Type;
-
-import ads.Ads;
-import ads.Ads.Experience;
 import platform.Platform;
-import profile.DeveloperProfile;
-import profile.EmplooyerProfile;
-import profile.EmplooyerProfile.EmplooyerType;
-import profile.Technologies;
+import users.Developer;
 import users.Employer;
 
 public class Demo {
-
 	public static void main(String[] args) {
-		
+
+		Platform medelin = new Platform("Medelin");
+
+		medelin.signUp();
+		medelin.signUp();
+		Employer emp = medelin.getEmpCatalog().get(0);
+		Developer dev = medelin.getDevCatalog().get(0);
+		medelin.createAdds(emp);
+		medelin.sendOffer(dev, emp);
+		dev.reviewOffers();
+
+		// medelin.logIn();
+
+		medelin.printUsers();
 
 	}
-
 }

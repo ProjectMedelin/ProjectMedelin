@@ -30,4 +30,9 @@ public class Offer {
 		this.isFinished = isFinished;
 	}
 
+	@Override
+	public String toString() {
+		return "Offer [isAccepted=" + isAccepted + ", isFinished=" + isFinished + ", Ad=" + ads + "]";
+	}
+
 }
