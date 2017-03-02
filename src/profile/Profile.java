@@ -49,5 +49,9 @@ public abstract class Profile extends TechOwner.TechAdder {
 			this.website = web;
 		}
 	}
+	
+	public String getName() {
+		return this.name;
+	}
 
 }

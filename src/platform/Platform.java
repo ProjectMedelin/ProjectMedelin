@@ -1,6 +1,7 @@
 package platform;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
 import ads.Ads;
@@ -21,7 +22,7 @@ public class Platform {
 	private ArrayList<Developer> devCatalog;
 	private ArrayList<Employer> empCatalog;
 	private ArrayList<Ads> adsCatalog;
-	private ArrayList<User> users;
+	private HashSet<User> users;
 	private ProfileFactory profileFactory;
 	private UserFactory userFactory;
 
@@ -30,7 +31,7 @@ public class Platform {
 		this.devCatalog = new ArrayList<>();
 		this.empCatalog = new ArrayList<>();
 		this.adsCatalog = new ArrayList<>();
-		this.users = new ArrayList<>();
+		this.users = new HashSet();
 		this.profileFactory = new ProfileFactory();
 		this.userFactory = new UserFactory();
 
@@ -39,7 +40,8 @@ public class Platform {
 	public void signUp() {
 
 		System.out.println("Please choose account type.\n enter 0 for developer \n enter 1 for employer ");
-		if (sc.nextInt() == 0) {
+		int temp = sc.nextInt();
+		if (temp == 0) {
 			System.out.print("Please enter your name");
 			String name = sc.nextLine();
 			Profile developerProfile = profileFactory.createProfile("developer", name, null);
@@ -49,11 +51,13 @@ public class Platform {
 			String passwordDeveloper = sc.nextLine();
 			User developerUser = userFactory.createUser(emailDeveloper, passwordDeveloper, developerProfile,
 					"developer");
+			this.users.add(developerUser);
+
 		}
-		if (sc.nextInt() == 1) {
+		if (temp == 1) {
 			System.out.println("Please enter your name");
 			String name = sc.nextLine();
-			System.out.println("Please enter 0 for company and 1 for private");
+		    System.out.println("Please enter 0 for company and 1 for private");
 			if (sc.nextInt() == 0) {
 				Profile employerCompany = profileFactory.createProfile("employer", name, EmplooyerType.COMPANY);
 				System.out.println("Please enter email");
@@ -61,15 +65,49 @@ public class Platform {
 				System.out.println("Enter Password");
 				String passwordCompany = sc.nextLine();
 				User companyUser = userFactory.createUser(emailCompany, passwordCompany, employerCompany, "employer");
+				this.users.add(companyUser);
+
 			}
-			if (sc.nextInt() == 0) {
+			if (sc.nextInt() == 1) {
 				Profile employerPrivate = profileFactory.createProfile("employer", name, EmplooyerType.PRIVATE);
 				System.out.println("Please enter email");
 				String emailPrivate = sc.nextLine();
 				System.out.println("Enter Password");
 				String passwordPrivate = sc.nextLine();
-				User companyUser = userFactory.createUser(emailPrivate, passwordPrivate, employerPrivate, "employer");
+				User privateUser = userFactory.createUser(emailPrivate, passwordPrivate, employerPrivate, "employer");
+				this.users.add(privateUser);
 			}
+		}
+	}
+
+	public User userCheckerByEmail(String email) {
+		for (User child : users) {
+			if (child.getEmail().equals(email)) {
+				return child;
+			}
+		}
+		return null;
+	}
+
+	public boolean passwordChecker(User user, String password) {
+		if (user.getPassword().equals(password)) {
+			return true;
+		}
+		return false;
+	}
+
+	public void logIn() {
+		System.out.println("Please enter your email");
+		String logInEmail = sc.nextLine();
+		User temp = userCheckerByEmail(logInEmail);
+		if (temp != null) {
+			System.out.println("Please enter your password: ");
+			String loginPassword = sc.nextLine();
+			if (passwordChecker(temp, loginPassword)) {
+				System.out.println("===== WELCOME TO MEDELIN =====");
+			}
+		} else {
+			System.out.println("Wrong email");
 		}
 
 	}
