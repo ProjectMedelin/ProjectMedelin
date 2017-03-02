@@ -41,9 +41,10 @@ public class Platform {
 
 		System.out.println("Please choose account type.\n enter 0 for developer \n enter 1 for employer ");
 		int temp = sc.nextInt();
-		if (temp == 0) {
+		sc.nextLine();
+		if (temp == 0) { // developer
 			System.out.print("Please enter your name");
-			String name = sc.nextLine();
+			String name = sc.nextLine();			
 			Profile developerProfile = profileFactory.createProfile("developer", name, null);
 			System.out.println("Please enter email");
 			String emailDeveloper = sc.nextLine();
@@ -54,11 +55,14 @@ public class Platform {
 			this.users.add(developerUser);
 
 		}
-		if (temp == 1) {
-			System.out.println("Please enter your name");
-			String name = sc.nextLine();
+		if (temp == 1) { //employer
+			
 		    System.out.println("Please enter 0 for company and 1 for private");
-			if (sc.nextInt() == 0) {
+		    int temp1 = sc.nextInt();
+		    sc.nextLine();
+			if ( temp1 == 0) { //company
+				System.out.println("Please enter your name");
+				String name = sc.nextLine();
 				Profile employerCompany = profileFactory.createProfile("employer", name, EmplooyerType.COMPANY);
 				System.out.println("Please enter email");
 				String emailCompany = sc.nextLine();
@@ -68,7 +72,9 @@ public class Platform {
 				this.users.add(companyUser);
 
 			}
-			if (sc.nextInt() == 1) {
+			if (temp1 == 1) { //private
+				System.out.println("Please enter your name");
+				String name = sc.nextLine();
 				Profile employerPrivate = profileFactory.createProfile("employer", name, EmplooyerType.PRIVATE);
 				System.out.println("Please enter email");
 				String emailPrivate = sc.nextLine();
