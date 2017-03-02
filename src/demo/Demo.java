@@ -7,7 +7,7 @@ import users.Employer;
 public class Demo {
 	public static void main(String[] args) {
 
-		Platform medelin = new Platform("Medelin");
+		Platform medelin = Platform.getInstance();
 
 		medelin.signUp();
 		medelin.signUp();

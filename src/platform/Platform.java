@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 
+import org.omg.CORBA.PRIVATE_MEMBER;
+
 import ads.Ads;
 import ads.Offer;
 import ads.Ads.Experience;
@@ -17,7 +19,10 @@ import users.User;
 import users.UserFactory;
 
 public class Platform {
-
+	
+	private static final String PLATFORM_NAME = "Medelin";
+	
+	private static Platform instance;
 	Scanner sc = new Scanner(System.in);
 	private String name;
 	private SearchEngine searchEngine;
@@ -28,8 +33,8 @@ public class Platform {
 	private ProfileFactory profileFactory;
 	private UserFactory userFactory;
 
-	public Platform(String name) {
-		this.name = name;
+	private Platform() {
+		this.name = PLATFORM_NAME;
 		this.devCatalog = new ArrayList<>();
 		this.empCatalog = new ArrayList<>();
 		this.adsCatalog = new ArrayList<>();
@@ -37,6 +42,13 @@ public class Platform {
 		this.profileFactory = new ProfileFactory();
 		this.userFactory = new UserFactory();
 
+	}
+	
+	public static Platform getInstance(){
+		if (instance == null) {
+			instance = new Platform();
+		}
+		return instance;
 	}
 
 	public void signUp() {
