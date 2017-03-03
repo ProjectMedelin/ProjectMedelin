@@ -6,12 +6,13 @@ import java.util.Scanner;
 import ads.Ads;
 import ads.Interview;
 import ads.Offer;
+import interfaces.Offerable;
 import interfaces.TechOwner;
 import profile.DeveloperProfile;
 import profile.Profile;
 import profile.Technologies;
 
-public class Developer extends User implements TechOwner{
+public class Developer extends User implements TechOwner, Offerable {
 
 	private static int counter = 0;
 	Scanner sc = new Scanner(System.in);
@@ -28,8 +29,6 @@ public class Developer extends User implements TechOwner{
 		this.interviews = new ArrayList<>();
 
 	}
-	
-	
 
 	public void reviewOffers() {
 		if (counter >= receivedOffers.size()) {
@@ -42,15 +41,17 @@ public class Developer extends User implements TechOwner{
 		System.out.println("To accept offer press 'a'.\nTo next offer press 'n'.\nTo quit press 'q'.");
 		String temp = sc.nextLine();
 		if (temp.equals("a")) {
-			
+
 			receivedOffers.get(counter).setAccepted(true);
 			System.out.println("Thanks for your choice");
+			counter = 0;
 			return;
 		}
 		if (temp.equals("n")) {
 			reviewOffers();
 		}
 		if (temp.equals("q")) {
+			counter = 0;
 			return;
 		}
 	}

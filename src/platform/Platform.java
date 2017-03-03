@@ -188,7 +188,7 @@ public class Platform {
 		System.out.println("Please enter a number for ads ");
 		int help = sc.nextInt();
 		Ads add = emp.giveMeAds().get(help);
-		Offer offer = new Offer(add);
+		Offer offer = new Offer(add, developer);
 		emp.setOffer(offer);
 		developer.addOffers(offer);
 	}
