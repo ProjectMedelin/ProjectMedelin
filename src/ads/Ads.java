@@ -39,6 +39,8 @@ public class Ads implements TechOwner {
 		this.reqTech = addTechno();
 
 	}
+	
+	
 
 	public void adEmployer(Employer emp) {
 		this.employer = emp;

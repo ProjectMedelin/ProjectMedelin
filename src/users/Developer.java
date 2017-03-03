@@ -64,6 +64,10 @@ public class Developer extends User implements TechOwner, Offerable {
 		this.receivedOffers.add(offer);
 	}
 
+	public void addInterview(Interview intV) {
+		this.interviews.add(intV);
+	}
+
 	public void recieveFeedBack() {
 
 	}

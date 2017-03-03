@@ -10,6 +10,8 @@ import ads.Ads;
 import ads.Ads.Experience;
 import ads.Offer;
 import profile.EmplooyerProfile.EmplooyerType;
+import profile.DeveloperProfile;
+import profile.EmplooyerProfile;
 import profile.Profile;
 import profile.ProfileFactory;
 import searchEngine.SearchEngine;
@@ -20,9 +22,9 @@ import users.User.FeedBack;
 import users.UserFactory;
 
 public class Platform {
-	
+
 	private static final String PLATFORM_NAME = "Medelin";
-	
+
 	private static Platform instance;
 	Scanner sc = new Scanner(System.in);
 	private String name;
@@ -44,8 +46,8 @@ public class Platform {
 		this.userFactory = new UserFactory();
 
 	}
-	
-	public static Platform getInstance(){
+
+	public static Platform getInstance() {
 		if (instance == null) {
 			instance = new Platform();
 		}
@@ -178,7 +180,7 @@ public class Platform {
 		}
 
 	}
-	
+
 	public void sendOffer(Developer developer, Employer emp) {
 		int counter = 0;
 		for (Ads ads2 : emp.giveMeAds()) {
@@ -192,19 +194,34 @@ public class Platform {
 		emp.setOffer(offer);
 		developer.addOffers(offer);
 	}
-	//podava se ofer ot list na developera i se setva kato finished.
-	public void markJobAsFinished(Offer offer){
+
+	// podava se ofer ot list na developera i se setva kato finished.
+	public void markJobAsFinished(Offer offer) {
 		offer.setFinished(true);
 		sendFeedback(offer.getAds().getEmployer());
-		
+
 	}
-	
-	private void sendFeedback(Employer employer){
+
+	private void sendFeedback(Employer employer) {
 		String feed = sc.nextLine();
 		Double rating = sc.nextDouble();
-		
+
 		FeedBack feedback = new FeedBack(feed, rating);
 		employer.addFeedBack(feedback);
-		
+
+	}
+
+	public void updateProfile(User user) { // ostavili sme si go, kogato pravim
+											// front-end-a, zaradi mnogoto
+											// syso-ve
+		if (user.getProfile() instanceof DeveloperProfile) {
+			DeveloperProfile temp = (DeveloperProfile) user.getProfile();
+			// update fields of developerprofile class with setters
+		}
+
+		if (user.getProfile() instanceof EmplooyerProfile) {
+			EmplooyerProfile temp = (EmplooyerProfile) user.getProfile();
+			// update fields of empolyerprofile class with setters
+		}
 	}
 }

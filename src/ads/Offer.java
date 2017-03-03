@@ -10,12 +10,14 @@ public class Offer {
 	private boolean isFinished;
 	private Ads ads;
 	private Developer dev;
+	private boolean isInterviewSet;
 
 	public Offer(Ads ads, Developer dev) {
 		this.isAccepted = false;
 		this.isFinished = false;
 		this.ads = ads;
-		this.dev =dev;
+		this.dev = dev;
+		this.isInterviewSet = false;
 	}
 
 	public boolean isAccepted() {
@@ -32,6 +34,14 @@ public class Offer {
 
 	public boolean isFinished() {
 		return this.isFinished;
+	}
+
+	public boolean getIsIntervieset() {
+		return this.isInterviewSet;
+	}
+
+	public void isInterviewSet(boolean isSeet) {
+		this.isInterviewSet = isSeet;
 	}
 
 	public void setFinished(boolean isFinished) {
