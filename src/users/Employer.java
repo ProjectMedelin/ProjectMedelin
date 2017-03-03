@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import ads.Ads;
 import ads.Ads.Experience;
+import ads.Interview;
 import ads.Offer;
 import interfaces.Offerable;
 import platform.Platform;
@@ -72,18 +73,19 @@ public class Employer extends User implements Offerable {
 				return;
 			}
 		}
-		
+
 		if (offers.get(counter - 1).isAccepted()) {
-			if(!offers.get(counter -1).getIsIntervieset())
-			System.out.println("If you want to send email for interview press 'y'.\nTo next offer press 'n'.\nTo quit press 'q'.");
+			if (!offers.get(counter - 1).getIsIntervieset())
+				System.out.println(
+						"If you want to send email for interview press 'y'.\nTo next offer press 'n'.\nTo quit press 'q'.");
 			String temp = sc.nextLine();
-			if (temp.equals("f")) {
-				System.out.println("");
-				String feed = sc.nextLine();
-				System.out.println("Please enter grade: ");
-				double grade = sc.nextDouble();
-				FeedBack feeds = new FeedBack(feed, grade);
-				offers.get(counter - 1).getDeveloper().addFeedBack(feeds);
+			if (temp.equals("y")) {
+				System.out.println("Please enter date in format dd-M-yyyy : ");
+				String date = sc.nextLine();
+				System.out.println("Please enter interviewer: ");
+				String interviewer = sc.nextLine();
+				Interview interview = new Interview(date,interviewer, offers.get(counter -1 ));
+				offers.get(counter - 1).getDeveloper().addInterview(interview);;
 				counter = 0;
 				return;
 			}
@@ -102,19 +104,14 @@ public class Employer extends User implements Offerable {
 		return this.ads;
 	}
 
-	public void setInterview(){
-	
-		
+	public void setInterview() {
+
 	}
-	
-	
-	
+
 	public void createSearchReq() {
 
 	}
 
-	public ArrayList<Developer> searchDeveloper(Platform platform, ArrayList<Technologies> req) {
-		return null;
-	}
+	
 
 }

@@ -24,7 +24,7 @@ public abstract class User {
 	}
 
 	protected Profile profile;
-	private String email;
+	protected String email;
 	private String password;
 	private double rating;
 	private ArrayList<FeedBack> feedback;

@@ -14,6 +14,7 @@ import profile.DeveloperProfile;
 import profile.EmplooyerProfile;
 import profile.Profile;
 import profile.ProfileFactory;
+import profile.Technologies;
 import searchEngine.SearchEngine;
 import users.Developer;
 import users.Employer;
@@ -223,5 +224,9 @@ public class Platform {
 			EmplooyerProfile temp = (EmplooyerProfile) user.getProfile();
 			// update fields of empolyerprofile class with setters
 		}
+	}
+	
+	public ArrayList<Developer> searchDeveloper(ArrayList<Technologies> req) {
+		return null;
 	}
 }
