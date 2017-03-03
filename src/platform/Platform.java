@@ -225,8 +225,15 @@ public class Platform {
 			// update fields of empolyerprofile class with setters
 		}
 	}
-	
-	public ArrayList<Developer> searchDeveloper(ArrayList<Technologies> req) {
-		return null;
+
+	public ArrayList<Developer> searchDeveloper(ArrayList<Technologies> req) { // tyrsachka po tehnologiqq
+		ArrayList<Developer> tep = new ArrayList<>();
+		for (Developer dev : devCatalog) {
+			DeveloperProfile tempp1 = (DeveloperProfile) dev.getProfile();
+			if (tempp1.getTech().containsAll(req)) {
+				tep.add(dev);
+			}
+		}
+		return tep;
 	}
 }

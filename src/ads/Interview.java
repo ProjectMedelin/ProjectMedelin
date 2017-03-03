@@ -76,10 +76,10 @@ public class Interview {
 
 	}
 
-	public static void sendInterviewEmail() {
+	public void sendInterviewEmail(String subjectText, String msgText) {
 		final String username = "project.medelin@gmail.com";
 		final String password = "parolamedelin";
-
+        
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
@@ -98,10 +98,9 @@ public class Interview {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("project.medelin@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO,
-				InternetAddress.parse("krmn1@abv.bg"));
-			message.setSubject("Testing Subject");
-			message.setText("Dear Mail Crawler,"
-				+ "\n\n No spam to my email, please!");
+				InternetAddress.parse(this.offer.getDeveloper().getEmail()));
+			message.setSubject(subjectText);
+			message.setText(msgText);
 
 			Transport.send(message);
 
