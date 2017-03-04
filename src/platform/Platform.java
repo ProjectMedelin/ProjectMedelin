@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 
-import org.omg.CORBA.PRIVATE_MEMBER;
-
 import ads.Ads;
 import ads.Ads.Experience;
 import ads.Offer;

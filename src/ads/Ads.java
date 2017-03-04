@@ -22,13 +22,14 @@ public class Ads implements TechOwner {
 	private ArrayList<Technologies> reqTech;
 	private Employer employer;
 
-	public Ads(String title, String desctription, String requirenments, String conditions, Experience experience) {
+	public Ads(String title, String desctription, String requirenments, String conditions, Experience experience, Employer employer) {
 		this.title = title;
 		this.desctription = desctription;
 		this.requirenments = requirenments;
 		this.conditions = conditions;
 		this.reqTech = new ArrayList<>();
 		this.experience = experience;
+		this.employer = employer;
 	}
 
 	public void addIn(Technologies tech) {
