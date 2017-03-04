@@ -34,7 +34,7 @@ public class Employer extends User implements Offerable {
 	}
 
 	public void createAd(String title, String desctription, String requirenments, String conditions, Experience xp) {
-		Ads ad = new Ads(title, desctription, requirenments, conditions, xp);
+		Ads ad = new Ads(title, desctription, requirenments, conditions, xp, this);
 		ad.addTechnology();
 		this.ads.add(ad);
 	}
