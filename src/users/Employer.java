@@ -86,7 +86,7 @@ public class Employer extends User implements Offerable {
 				String interviewer = sc.nextLine();
 				Interview interview = new Interview(date,interviewer, offers.get(counter -1 ));
 				offers.get(counter - 1).getDeveloper().addInterview(interview);
-				interview.sendInterviewEmail("ProjectMedelin from Sasho and Krum", "Пращаме ти емайл от метод");
+				interview.sendInterviewEmail();
 				counter = 0;
 				return;
 			}
