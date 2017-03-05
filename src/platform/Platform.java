@@ -67,6 +67,13 @@ public class Platform {
 			Profile developerProfile = profileFactory.createProfile("developer", name, null);
 			System.out.println("Please enter email");
 			String emailDeveloper = sc.nextLine();
+			
+			while (!EmailValidator.validate(emailDeveloper)) {
+				System.out.println("Invalid email address.");
+				System.out.println("Please enter email");
+				emailDeveloper = sc.nextLine();			
+			}
+			
 			System.out.println("Enter Password");
 			String passwordDeveloper = sc.nextLine();
 
@@ -93,12 +100,18 @@ public class Platform {
 				Profile employerCompany = profileFactory.createProfile("employer", name, EmplooyerType.COMPANY);
 				System.out.println("Please enter email");
 				String emailCompany = sc.nextLine();
+				
+				while (!EmailValidator.validate(emailCompany)) {
+					System.out.println("Invalid email address.");
+					System.out.println("Please enter email");
+					emailCompany = sc.nextLine();			
+				}
+				
 				System.out.println("Enter Password");
 				String passwordCompany = sc.nextLine();
 
 				while (!new PasswordValidator().validate(passwordCompany)) {
-					System.out.println(
-							"The password must contains at least one capitat and small letter, one digit and be at least 5 characters long.");
+					System.out.println("The password must contains at least one capitat and small letter, one digit and be at least 5 characters long.");
 					System.out.println("Enter Password");
 					passwordCompany = sc.nextLine();
 				}
@@ -114,6 +127,13 @@ public class Platform {
 				Profile employerPrivate = profileFactory.createProfile("employer", name, EmplooyerType.PRIVATE);
 				System.out.println("Please enter email");
 				String emailPrivate = sc.nextLine();
+				
+				while (!EmailValidator.validate(emailPrivate)) {
+					System.out.println("Invalid email address.");
+					System.out.println("Please enter email");
+					emailPrivate = sc.nextLine();			
+				}
+				
 				System.out.println("Enter Password");
 				String passwordPrivate = sc.nextLine();
 
@@ -197,6 +217,13 @@ public class Platform {
 	public void logIn() {
 		System.out.println("Please enter your email");
 		String logInEmail = sc.nextLine();
+		
+		while (!EmailValidator.validate(logInEmail)) {
+			System.out.println("Invalid email address.");
+			System.out.println("Please enter email");
+			logInEmail = sc.nextLine();			
+		}
+		
 		User temp = userCheckerByEmail(logInEmail);
 		if (temp != null) {
 			System.out.println("Please enter your password: ");
@@ -205,7 +232,7 @@ public class Platform {
 				System.out.println("===== WELCOME TO MEDELIN =====");
 			}
 		} else {
-			System.out.println("Wrong email");
+			System.out.println("Wrong email or password.");
 		}
 
 	}
