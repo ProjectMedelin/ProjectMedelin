@@ -2,7 +2,6 @@ package users;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Scanner;
 
@@ -11,10 +10,7 @@ import ads.Ads.Experience;
 import ads.Interview;
 import ads.Offer;
 import interfaces.Offerable;
-import platform.Platform;
-import profile.EmplooyerProfile;
 import profile.Profile;
-import profile.Technologies;
 
 public class Employer extends User implements Offerable {
 

@@ -1,20 +1,15 @@
 package users;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
-import java.util.TreeSet;
-
 import ads.Ads;
 import ads.Interview;
 import ads.Offer;
 import interfaces.Offerable;
 import interfaces.TechOwner;
-import platform.Platform;
 import profile.DeveloperProfile;
 import profile.Profile;
 import profile.Technologies;
-import searchEngine.SearchEngine;
 
 public class Developer extends User implements TechOwner, Offerable {
 
@@ -77,9 +72,6 @@ public class Developer extends User implements TechOwner, Offerable {
         DeveloperProfile prof = (DeveloperProfile) this.profile;
 		return prof.getTech();
 
-	}
-	
-	
-
+	}	
 	
 }

@@ -1,7 +1,5 @@
 package ads;
 
-import java.util.ArrayList;
-
 import users.Developer;
 
 public class Offer {

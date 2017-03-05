@@ -18,6 +18,8 @@ import users.Developer;
 import users.Employer;
 import users.User;
 import users.User.FeedBack;
+import validators.EmailValidator;
+import validators.PasswordValidator;
 import users.UserFactory;
 
 public class Platform {
@@ -265,10 +267,8 @@ public class Platform {
 	}
 
 	public void printAds(ArrayList<Ads> ads) {
-		int counter = 0;
 		for (Ads ad : ads) {
 			System.out.println(ad);
-			counter++;
 		}
 
 	}
@@ -296,9 +296,7 @@ public class Platform {
 		ArrayList<Technologies> techAds = dev.addTechno();
 		System.out.println(this.adsCatalog.size());
 		System.out.println(techAds);
-		if (this != null) {
-			System.out.println("kur");
-		}
+
 		ArrayList<Ads> searchedAds = searcher.searchAds(techAds, this);
 		printAds(searchedAds);
 		System.out.println("Please choose ad to apply by number: ");

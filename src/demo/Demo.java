@@ -5,13 +5,13 @@ import ads.Ads.Experience;
 import ads.Interview;
 import ads.Offer;
 import platform.EmailSender;
-import platform.PasswordValidator;
 import platform.Platform;
 import profile.DeveloperProfile;
 import profile.EmplooyerProfile;
 import profile.EmplooyerProfile.EmplooyerType;
 import users.Developer;
 import users.Employer;
+import validators.PasswordValidator;
 
 public class Demo {
 	public static void main(String[] args) {

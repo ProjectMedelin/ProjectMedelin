@@ -1,9 +1,6 @@
 package profile;
 
 import java.io.File;
-import java.util.ArrayList;
-
-import interfaces.TechOwner;
 
 public abstract class Profile {
 

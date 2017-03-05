@@ -2,7 +2,6 @@ package users;
 
 import java.util.ArrayList;
 
-import interfaces.TechOwner;
 import profile.Profile;
 
 public abstract class User {

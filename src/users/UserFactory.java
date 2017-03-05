@@ -1,9 +1,6 @@
 package users;
 
-import profile.DeveloperProfile;
-import profile.EmplooyerProfile;
 import profile.Profile;
-import profile.EmplooyerProfile.EmplooyerType;
 
 public class UserFactory {
 

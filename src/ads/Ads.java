@@ -1,8 +1,6 @@
 package ads;
 
 import java.util.ArrayList;
-import java.util.Scanner;
-
 import interfaces.TechOwner;
 
 import profile.Technologies;
