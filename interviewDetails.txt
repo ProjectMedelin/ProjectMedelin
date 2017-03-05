@@ -1,0 +1,1 @@
+Interview [date=Sun Mar 12 00:00:00 EET 2017, interviewer=Gosho, offer=Offer [isAccepted=false, isFinished=false, Ad=Ads [experience=INTERN, title=da, desctription=ne, requirenments=mnogo, conditions=malko, employer=it]]]

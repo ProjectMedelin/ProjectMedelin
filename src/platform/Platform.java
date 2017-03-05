@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 
-import org.omg.CORBA.PRIVATE_MEMBER;
-
 import ads.Ads;
 import ads.Ads.Experience;
 import ads.Offer;
@@ -66,8 +64,14 @@ public class Platform {
 			Profile developerProfile = profileFactory.createProfile("developer", name, null);
 			System.out.println("Please enter email");
 			String emailDeveloper = sc.nextLine();
-			System.out.println("Enter Password");
+			System.out.println("Enter Password");			
 			String passwordDeveloper = sc.nextLine();
+			
+			while (!new PasswordValidator().validate(passwordDeveloper)) {
+				System.out.println("The password must contains at least one capitat and small letter, one digit and be at least 5 characters long.");
+				System.out.println("Enter Password");			
+				passwordDeveloper = sc.nextLine();
+			}
 			User developerUser = userFactory.createUser(emailDeveloper, passwordDeveloper, developerProfile,
 					"developer");
 			this.users.add(developerUser);
@@ -87,6 +91,13 @@ public class Platform {
 				String emailCompany = sc.nextLine();
 				System.out.println("Enter Password");
 				String passwordCompany = sc.nextLine();
+				
+				while (!new PasswordValidator().validate(passwordCompany)) {
+					System.out.println("The password must contains at least one capitat and small letter, one digit and be at least 5 characters long.");
+					System.out.println("Enter Password");			
+					passwordCompany = sc.nextLine();
+				}
+				
 				User companyUser = userFactory.createUser(emailCompany, passwordCompany, employerCompany, "employer");
 				this.users.add(companyUser);
 				this.empCatalog.add((Employer) companyUser);
@@ -100,6 +111,13 @@ public class Platform {
 				String emailPrivate = sc.nextLine();
 				System.out.println("Enter Password");
 				String passwordPrivate = sc.nextLine();
+				
+				while (!new PasswordValidator().validate(passwordPrivate)) {
+					System.out.println("The password must contains at least one capitat and small letter, one digit and be at least 5 characters long.");
+					System.out.println("Enter Password");			
+					passwordPrivate = sc.nextLine();
+				}
+				
 				User privateUser = userFactory.createUser(emailPrivate, passwordPrivate, employerPrivate, "employer");
 				this.users.add(privateUser);
 				this.empCatalog.add((Employer) privateUser);

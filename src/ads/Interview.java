@@ -26,6 +26,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import platform.EmailSender;
+
 public class Interview {
 
 	private Date date;
@@ -76,38 +78,21 @@ public class Interview {
 
 	}
 
-	public void sendInterviewEmail(String subjectText, String msgText) {
-		final String username = "project.medelin@gmail.com";
-		final String password = "parolamedelin";
-        
-		Properties props = new Properties();
-		props.put("mail.smtp.auth", "true");
-		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.smtp.port", "587");
-		Session session = Session.getInstance(props,
-		  new javax.mail.Authenticator() {
-			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(username, password);
-			}
-		  });
 
-		try {
+	
+	public void sendInterviewEmail() {
+		
+		System.out.println("Please enter receiver email: ");
+		String receiverEmail = sc.nextLine();
+		System.out.println("Please enter email subject: ");
+		String subjectText = sc.nextLine();
+		System.out.println("Please enter your massage: ");
+		String msgText = sc.nextLine();
+		
+		EmailSender.sendSimpleEmail(receiverEmail, subjectText, msgText);
+		
+		
 
-			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("project.medelin@gmail.com"));
-			message.setRecipients(Message.RecipientType.TO,
-				InternetAddress.parse(this.offer.getDeveloper().getEmail()));
-			message.setSubject(subjectText);
-			message.setText(msgText);
-
-			Transport.send(message);
-
-			System.out.println("Done");
-
-		} catch (MessagingException e) {
-			throw new RuntimeException(e);
-		}
 	}
 	
 

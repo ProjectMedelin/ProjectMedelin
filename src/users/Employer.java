@@ -34,7 +34,7 @@ public class Employer extends User implements Offerable {
 	}
 
 	public void createAd(String title, String desctription, String requirenments, String conditions, Experience xp) {
-		Ads ad = new Ads(title, desctription, requirenments, conditions, xp);
+		Ads ad = new Ads(title, desctription, requirenments, conditions, xp, this);
 		ad.addTechnology();
 		this.ads.add(ad);
 	}
@@ -86,7 +86,7 @@ public class Employer extends User implements Offerable {
 				String interviewer = sc.nextLine();
 				Interview interview = new Interview(date,interviewer, offers.get(counter -1 ));
 				offers.get(counter - 1).getDeveloper().addInterview(interview);
-				interview.sendInterviewEmail("ProjectMedelin from Sasho and Krum", "Пращаме ти емайл от метод");
+				interview.sendInterviewEmail();
 				counter = 0;
 				return;
 			}
