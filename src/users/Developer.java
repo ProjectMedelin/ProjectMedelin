@@ -1,16 +1,20 @@
 package users;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 import ads.Ads;
 import ads.Interview;
 import ads.Offer;
 import interfaces.Offerable;
 import interfaces.TechOwner;
+import platform.Platform;
 import profile.DeveloperProfile;
 import profile.Profile;
 import profile.Technologies;
+import searchEngine.SearchEngine;
 
 public class Developer extends User implements TechOwner, Offerable {
 
@@ -20,7 +24,7 @@ public class Developer extends User implements TechOwner, Offerable {
 	private ArrayList<Offer> receivedOffers;
 	private ArrayList<Interview> interviews;
 	private ArrayList<Employer> emplooyers;
-
+	
 	public Developer(Profile profile, String email, String password) {
 		super(profile, email, password);
 		this.favouriteAds = new ArrayList<>();
@@ -66,10 +70,16 @@ public class Developer extends User implements TechOwner, Offerable {
 
 	public void addInterview(Interview intV) {
 		this.interviews.add(intV);
-		
-	}
-
-	public void recieveFeedBack() {
 
 	}
+
+	public ArrayList<Technologies> getTechnology() {
+        DeveloperProfile prof = (DeveloperProfile) this.profile;
+		return prof.getTech();
+
+	}
+	
+	
+
+	
 }

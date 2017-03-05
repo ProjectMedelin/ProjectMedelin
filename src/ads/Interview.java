@@ -78,23 +78,18 @@ public class Interview {
 
 	}
 
-
-	
 	public void sendInterviewEmail() {
-		
+
 		System.out.println("Please enter receiver email: ");
 		String receiverEmail = sc.nextLine();
 		System.out.println("Please enter email subject: ");
 		String subjectText = sc.nextLine();
 		System.out.println("Please enter your massage: ");
 		String msgText = sc.nextLine();
-		
+
 		EmailSender.sendSimpleEmail(receiverEmail, subjectText, msgText);
-		
-		
 
 	}
-	
 
 	@Override
 	public String toString() {

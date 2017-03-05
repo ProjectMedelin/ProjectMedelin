@@ -31,6 +31,10 @@ public class Ads implements TechOwner {
 		this.experience = experience;
 		this.employer = employer;
 	}
+	
+	public String getTitle() {
+		return title;
+	}
 
 	public void addIn(Technologies tech) {
 		this.reqTech.add(tech);
@@ -41,13 +45,13 @@ public class Ads implements TechOwner {
 
 	}
 	
-	
+    	
 
 	public void adEmployer(Employer emp) {
 		this.employer = emp;
 	}
 
-	public ArrayList<Technologies> getArray() {
+	public ArrayList<Technologies> getTechnology() {
 		return this.reqTech;
 	}
 

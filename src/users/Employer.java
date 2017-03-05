@@ -1,6 +1,9 @@
 package users;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 import ads.Ads;
@@ -20,13 +23,26 @@ public class Employer extends User implements Offerable {
 	private ArrayList<Offer> offers;
 	private ArrayList<Developer> developers;
 	private static int counter = 0;
+	private HashMap<Ads, ArrayList<Developer>> applications;
 
 	public Employer(Profile profile, String email, String password) {
 		super(profile, email, password);
 		this.ads = new ArrayList<>();
 		this.offers = new ArrayList<>();
 		this.developers = new ArrayList<>();
+		this.applications = new HashMap<>();
 
+	}
+
+	public HashMap<Ads, ArrayList<Developer>> getApplication() {
+		return this.applications;
+	}
+
+	public void addApplication(Ads ad, Developer dev) {
+		if (!this.applications.containsKey(ad)) {
+			this.applications.put(ad, new ArrayList<>());
+		}
+		this.applications.get(ad).add(dev);
 	}
 
 	public void addDeveloper(Developer developer) {
@@ -84,7 +100,7 @@ public class Employer extends User implements Offerable {
 				String date = sc.nextLine();
 				System.out.println("Please enter interviewer: ");
 				String interviewer = sc.nextLine();
-				Interview interview = new Interview(date,interviewer, offers.get(counter -1 ));
+				Interview interview = new Interview(date, interviewer, offers.get(counter - 1));
 				offers.get(counter - 1).getDeveloper().addInterview(interview);
 				interview.sendInterviewEmail();
 				counter = 0;
@@ -101,18 +117,34 @@ public class Employer extends User implements Offerable {
 
 	}
 
-	public ArrayList<Ads> giveMeAds() {
+	public ArrayList<Developer> reviewApplication() {
+		for (Entry<Ads, ArrayList<Developer>> e1 : applications.entrySet()) {
+			System.out.println(e1.getKey());
+		}
+		System.out.println("Please pick ad by title: ");
+		String title = sc.nextLine();
+		for (Entry<Ads, ArrayList<Developer>> e1 : applications.entrySet()) {
+			if (e1.getKey().getTitle().equals(title)) {
+				return e1.getValue();
+			}
+		}
+		return new ArrayList<Developer>();
+	}
+    // vrushta developer, koito e izbran ot rabotodatelq za izprashtane na oferta
+	public Developer reviewAndPickDeveloper() {
+		int counter = 0;
+		ArrayList<Developer> developers = reviewApplication();
+		for (Developer dev : developers) {
+			System.out.println(counter + " - " + dev);
+
+		}
+		System.out.println("Please pick developer by number: ");
+		int number = sc.nextInt();
+		return developers.get(number);
+	}
+
+	public ArrayList<Ads> getAdds() {
 		return this.ads;
 	}
-
-	public void setInterview() {
-
-	}
-
-	public void createSearchReq() {
-
-	}
-
-	
 
 }

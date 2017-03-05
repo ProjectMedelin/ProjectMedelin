@@ -24,6 +24,7 @@ public class Platform {
 
 	private static final String PLATFORM_NAME = "Medelin";
 
+	private static int counter = 0;
 	private static Platform instance;
 	Scanner sc = new Scanner(System.in);
 	private String name;
@@ -34,6 +35,7 @@ public class Platform {
 	private HashSet<User> users;
 	private ProfileFactory profileFactory;
 	private UserFactory userFactory;
+	private SearchEngine searcher;
 
 	private Platform() {
 		this.name = PLATFORM_NAME;
@@ -43,6 +45,7 @@ public class Platform {
 		this.users = new HashSet();
 		this.profileFactory = new ProfileFactory();
 		this.userFactory = new UserFactory();
+		this.searcher = new SearchEngine();
 
 	}
 
@@ -64,12 +67,13 @@ public class Platform {
 			Profile developerProfile = profileFactory.createProfile("developer", name, null);
 			System.out.println("Please enter email");
 			String emailDeveloper = sc.nextLine();
-			System.out.println("Enter Password");			
+			System.out.println("Enter Password");
 			String passwordDeveloper = sc.nextLine();
-			
+
 			while (!new PasswordValidator().validate(passwordDeveloper)) {
-				System.out.println("The password must contains at least one capitat and small letter, one digit and be at least 5 characters long.");
-				System.out.println("Enter Password");			
+				System.out.println(
+						"The password must contains at least one capitat and small letter, one digit and be at least 5 characters long.");
+				System.out.println("Enter Password");
 				passwordDeveloper = sc.nextLine();
 			}
 			User developerUser = userFactory.createUser(emailDeveloper, passwordDeveloper, developerProfile,
@@ -91,13 +95,14 @@ public class Platform {
 				String emailCompany = sc.nextLine();
 				System.out.println("Enter Password");
 				String passwordCompany = sc.nextLine();
-				
+
 				while (!new PasswordValidator().validate(passwordCompany)) {
-					System.out.println("The password must contains at least one capitat and small letter, one digit and be at least 5 characters long.");
-					System.out.println("Enter Password");			
+					System.out.println(
+							"The password must contains at least one capitat and small letter, one digit and be at least 5 characters long.");
+					System.out.println("Enter Password");
 					passwordCompany = sc.nextLine();
 				}
-				
+
 				User companyUser = userFactory.createUser(emailCompany, passwordCompany, employerCompany, "employer");
 				this.users.add(companyUser);
 				this.empCatalog.add((Employer) companyUser);
@@ -111,13 +116,14 @@ public class Platform {
 				String emailPrivate = sc.nextLine();
 				System.out.println("Enter Password");
 				String passwordPrivate = sc.nextLine();
-				
+
 				while (!new PasswordValidator().validate(passwordPrivate)) {
-					System.out.println("The password must contains at least one capitat and small letter, one digit and be at least 5 characters long.");
-					System.out.println("Enter Password");			
+					System.out.println(
+							"The password must contains at least one capitat and small letter, one digit and be at least 5 characters long.");
+					System.out.println("Enter Password");
 					passwordPrivate = sc.nextLine();
 				}
-				
+
 				User privateUser = userFactory.createUser(emailPrivate, passwordPrivate, employerPrivate, "employer");
 				this.users.add(privateUser);
 				this.empCatalog.add((Employer) privateUser);
@@ -150,6 +156,7 @@ public class Platform {
 	}
 
 	public void createAdds(Employer emp) {
+
 		System.out.println("Enter title: ");
 		String title = sc.nextLine();
 		System.out.println("Enter decription: ");
@@ -175,7 +182,10 @@ public class Platform {
 			break;
 		}
 		emp.createAd(title, desctription, requirements, conditions, exp);
-		emp.giveMeAds().get(0).adEmployer(emp);
+		emp.getAdds().get(counter).adEmployer(emp);
+		Ads add= emp.getAdds().get(counter);
+		this.adsCatalog.add(add);
+		counter++;
 	}
 
 	public void printUsers() {
@@ -201,17 +211,14 @@ public class Platform {
 	}
 
 	public void sendOffer(Developer developer, Employer emp) {
-		int counter = 0;
-		for (Ads ads2 : emp.giveMeAds()) {
-			System.out.println(counter + " - " + ads2);
-			counter++;
-		}
+		printAds(emp.getAdds());
 		System.out.println("Please enter a number for ads ");
 		int help = sc.nextInt();
-		Ads add = emp.giveMeAds().get(help);
+		Ads add = emp.getAdds().get(help);
 		Offer offer = new Offer(add, developer);
 		emp.setOffer(offer);
 		developer.addOffers(offer);
+		System.out.println("done");
 	}
 
 	// podava se ofer ot list na developera i se setva kato finished.
@@ -230,6 +237,15 @@ public class Platform {
 
 	}
 
+	public void printAds(ArrayList<Ads> ads) {
+		int counter = 0;
+		for (Ads ad : ads) {
+			System.out.println(ad);
+			counter++;
+		}
+
+	}
+
 	public void updateProfile(User user) { // ostavili sme si go, kogato pravim
 											// front-end-a, zaradi mnogoto
 											// syso-ve
@@ -244,14 +260,24 @@ public class Platform {
 		}
 	}
 
-	public ArrayList<Developer> searchDeveloper(ArrayList<Technologies> req) { // tyrsachka po tehnologiqq
-		ArrayList<Developer> tep = new ArrayList<>();
-		for (Developer dev : devCatalog) {
-			DeveloperProfile tempp1 = (DeveloperProfile) dev.getProfile();
-			if (tempp1.getTech().containsAll(req)) {
-				tep.add(dev);
-			}
-		}
-		return tep;
+	public ArrayList<Ads> getAds() {
+		return this.adsCatalog;
 	}
+
+	public void applyAdds(Developer dev) {
+		System.out.println("Please choose technology: ");
+		ArrayList<Technologies> techAds = dev.addTechno();
+		System.out.println(this.adsCatalog.size());
+		System.out.println(techAds);
+		if (this != null) {
+			System.out.println("kur");
+		}
+		ArrayList<Ads> searchedAds = searcher.searchAds(techAds, this);
+		printAds(searchedAds);
+		System.out.println("Please choose ad to apply by number: ");
+		int number = sc.nextInt();
+		searchedAds.get(number).getEmployer().addApplication(searchedAds.get(number), dev);
+		
+	}
+
 }
