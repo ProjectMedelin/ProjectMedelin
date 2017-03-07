@@ -29,8 +29,10 @@ public abstract class User {
 	private ArrayList<FeedBack> feedback;
 
 	public User(Profile profile, String email, String password) {
+		
 		this.profile = profile;
 		this.email = email;
+		this.profile.setEmail(email);
 		this.password = password;
 		this.feedback = new ArrayList<>();
 	}

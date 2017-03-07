@@ -9,6 +9,7 @@ import ads.Ads;
 import ads.Ads.Experience;
 import ads.Interview;
 import ads.Offer;
+import interfaces.Moderator;
 import interfaces.Offerable;
 import profile.Profile;
 
@@ -141,6 +142,22 @@ public class Employer extends User implements Offerable {
 
 	public ArrayList<Ads> getAdds() {
 		return this.ads;
+	}
+	
+	public void removeAd(Ads add, Moderator mod){
+		for(Ads ad: this.ads){
+			if(ad.equals(add)){
+				this.ads.remove(add);
+			}
+		}
+	}
+	
+	public void removeOfferByAd(Ads add, Moderator mod){
+		for(Offer offer : this.offers){
+			if(offer.getAds().equals(add)){
+				this.offers.remove(offer);
+			}
+		}
 	}
 
 }
