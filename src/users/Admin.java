@@ -3,11 +3,10 @@ package users;
 import java.util.Scanner;
 
 import ads.Ads;
-
 import ads.Offer;
-
 import interfaces.Moderator;
-
+import ads.Offer;
+import interfaces.Moderator;
 import platform.Platform;
 import profile.Profile;
 
@@ -15,8 +14,9 @@ public class Admin extends User implements Moderator {
 
 	Scanner scan = new Scanner(System.in);
 
-    public Admin(Profile profile, String email, String password) {
-		super(profile, email, password);
+
+	public Admin(Profile profile, String email, String password) {
+       super(profile, email, password);
 	}
 
 	@Override
