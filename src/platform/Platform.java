@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import ads.Ads;
 import ads.Ads.Experience;
+import interfaces.Moderator;
 import ads.Offer;
 import profile.EmplooyerProfile.EmplooyerType;
 import profile.DeveloperProfile;
@@ -34,7 +35,7 @@ public class Platform {
 	private ArrayList<Developer> devCatalog;
 	private ArrayList<Employer> empCatalog;
 	private ArrayList<Ads> adsCatalog;
-	private HashSet<User> users;
+	private ArrayList<User> users;
 	private ProfileFactory profileFactory;
 	private UserFactory userFactory;
 	private SearchEngine searcher;
@@ -44,7 +45,7 @@ public class Platform {
 		this.devCatalog = new ArrayList<>();
 		this.empCatalog = new ArrayList<>();
 		this.adsCatalog = new ArrayList<>();
-		this.users = new HashSet();
+		this.users = new ArrayList<>();
 		this.profileFactory = new ProfileFactory();
 		this.userFactory = new UserFactory();
 		this.searcher = new SearchEngine();
@@ -304,12 +305,31 @@ public class Platform {
 		int number = sc.nextInt();
 		searchedAds.get(number).getEmployer().addApplication(searchedAds.get(number), dev);
 
+
 	}
 
-	
+	public void removeAdFromCatalog(Ads ad, Moderator mod) {
+		if (this.adsCatalog.contains(ad)) {
+			this.adsCatalog.remove(ad);
+		}
+	}
 
-	
+	public ArrayList<User> getUsers() {
+		return users;
+	}
 
+	public void removeUser(User user, Moderator mod) {
+		if (this.users.contains(user)) {
+			this.users.remove(user);
+		}
+		if (user instanceof Developer) {
+			this.devCatalog.remove(user);
+		}
+		if (user instanceof Employer) {
+			this.empCatalog.remove(user);
+			
+		}
 
+	}
 
 }

@@ -10,10 +10,17 @@ public abstract class Profile {
 	protected String about;
 	private File video;
 	private String website;
+	private String email;
 
 	public Profile(String name) {
 		this.name = name;
+		
 	}
+	
+	public void setEmail(String email){
+		this.email=email;
+	}
+	
 
 	public void addProfilePic(File profilePic) {
 		System.out.println("Pls add profile picture");

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import ads.Ads;
 import ads.Interview;
 import ads.Offer;
+import interfaces.Moderator;
 import interfaces.Offerable;
 import interfaces.TechOwner;
 import profile.DeveloperProfile;
@@ -19,7 +20,7 @@ public class Developer extends User implements TechOwner, Offerable {
 	private ArrayList<Offer> receivedOffers;
 	private ArrayList<Interview> interviews;
 	private ArrayList<Employer> emplooyers;
-	
+
 	public Developer(Profile profile, String email, String password) {
 		super(profile, email, password);
 		this.favouriteAds = new ArrayList<>();
@@ -73,9 +74,24 @@ public class Developer extends User implements TechOwner, Offerable {
 	}
 
 	public ArrayList<Technologies> getTechnology() {
-        DeveloperProfile prof = (DeveloperProfile) this.profile;
+		DeveloperProfile prof = (DeveloperProfile) this.profile;
 		return prof.getTech();
 
-	}	
-	
+	}
+
+	public void removeAdFromDeveloper(Ads add, Moderator mod) {
+		for (Ads ad : favouriteAds) {
+			if (ad.equals(add)) {
+				this.favouriteAds.remove(add);
+			}
+		}
+	}
+
+	public void removeOfferByAd(Ads add,Moderator mod) {
+		for (Offer offer : this.receivedOffers) {
+			if (offer.getAds().equals(add)) {
+				this.receivedOffers.remove(offer);
+			}
+		}
+	}
 }
