@@ -34,6 +34,14 @@ public class Employer extends User implements Offerable {
 		return this.applications;
 	}
 
+	public void removeAd(Ads ad) {
+		this.ads.remove(ad);
+	}
+
+	public ArrayList<Offer> getOffers() {
+		return offers;
+	}
+
 	public void addApplication(Ads ad, Developer dev) {
 		if (!this.applications.containsKey(ad)) {
 			this.applications.put(ad, new ArrayList<>());
@@ -126,7 +134,9 @@ public class Employer extends User implements Offerable {
 		}
 		return new ArrayList<Developer>();
 	}
-    // vrushta developer, koito e izbran ot rabotodatelq za izprashtane na oferta
+
+	// vrushta developer, koito e izbran ot rabotodatelq za izprashtane na
+	// oferta
 	public Developer reviewAndPickDeveloper() {
 		int counter = 0;
 		ArrayList<Developer> developers = reviewApplication();
@@ -143,4 +153,8 @@ public class Employer extends User implements Offerable {
 		return this.ads;
 	}
 
-}
+	
+
+	}
+
+

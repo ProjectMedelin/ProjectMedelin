@@ -29,6 +29,10 @@ public class Developer extends User implements TechOwner, Offerable {
 
 	}
 
+	public ArrayList<Ads> getFavouriteAds() {
+		return favouriteAds;
+	}
+	
 	public void reviewOffers() {
 		if (counter >= receivedOffers.size()) {
 			System.out.println("There is no more offers");
