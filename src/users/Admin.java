@@ -3,11 +3,11 @@ package users;
 import java.util.Scanner;
 
 import ads.Ads;
-<<<<<<< HEAD
+
 import ads.Offer;
-=======
+
 import interfaces.Moderator;
->>>>>>> 5156efbffe98254e7d69df57ecd3e85e06fe2fcd
+
 import platform.Platform;
 import profile.Profile;
 
@@ -15,20 +15,7 @@ public class Admin extends User implements Moderator {
 
 	Scanner scan = new Scanner(System.in);
 
-
-	
-
-	private Platform platform;
-
-	public Admin(Profile profile, String email, String password, Platform platform) {
-		super(profile, email, password);
-		this.platform = platform;
-	}
-
-	
-	
-
-	public Admin(Profile profile, String email, String password) {
+    public Admin(Profile profile, String email, String password) {
 		super(profile, email, password);
 	}
 
