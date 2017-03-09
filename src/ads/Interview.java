@@ -20,7 +20,7 @@ public class Interview {
 
 	public Interview(String data, String interviewer, Offer offer) {
 		setDate(data);
-		this.interviewer = interviewer;
+		this.interviewer = interviewer; 
 		this.offer = offer;
 	}
 

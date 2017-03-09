@@ -32,7 +32,6 @@ public abstract class User {
 		
 		this.profile = profile;
 		this.email = email;
-		this.profile.setEmail(email);
 		this.password = password;
 		this.feedback = new ArrayList<>();
 	}

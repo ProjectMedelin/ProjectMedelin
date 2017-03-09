@@ -1,9 +1,13 @@
 package demo;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import ads.Ads;
 import ads.Ads.Experience;
 import ads.Interview;
 import ads.Offer;
+import database.DBUtil;
 import platform.EmailSender;
 import platform.Platform;
 import profile.DeveloperProfile;
@@ -14,9 +18,9 @@ import users.Employer;
 import validators.PasswordValidator;
 
 public class Demo {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		
-		Platform medelin =Platform.getInstance();
+		/*Platform medelin =Platform.getInstance();
 		DeveloperProfile developerProfile = new DeveloperProfile("Shashank");
 		Developer developer = new Developer(developerProfile, "project.medelin@gmail.com", "parola");
 		EmplooyerProfile emplooyerProfile = new EmplooyerProfile("it", EmplooyerType.COMPANY);
@@ -33,7 +37,17 @@ public class Demo {
 		medelin.applyAdds(developer);
 		medelin.sendOffer(employer.reviewAndPickDeveloper(), ad.getEmployer());
 		
-		ad.getEmployer().reviewApplication();
+		ad.getEmployer().reviewApplication();*/
+		Connection connection = null;
+		try {
+			connection = DBUtil.getConnection();
+			System.out.println("V igrata sme");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			connection.close();
+		}
 		
 		
 		//String testFilename = "interviewDetails.txt";

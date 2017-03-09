@@ -1,5 +1,6 @@
 package users;
 
+import java.sql.SQLNonTransientConnectionException;
 import java.util.Scanner;
 
 import ads.Ads;
@@ -13,10 +14,12 @@ import profile.Profile;
 public class Admin extends User implements Moderator {
 
 	Scanner scan = new Scanner(System.in);
+	private static final String PASSWORD_ADMIN="parolamedelin12*";
+	private static final String EMAIL_ADMIN="project.medelin@gmail.com";
 
 
-	public Admin(Profile profile, String email, String password) {
-       super(profile, email, password);
+	public Admin() {
+       super(null, EMAIL_ADMIN, PASSWORD_ADMIN);
 	}
 
 	@Override
