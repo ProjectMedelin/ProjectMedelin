@@ -38,18 +38,14 @@ public class Demo {
 		medelin.sendOffer(employer.reviewAndPickDeveloper(), ad.getEmployer());
 		
 		ad.getEmployer().reviewApplication();*/
-		Connection connection = null;
-		try {
-			connection = DBUtil.getConnection();
+
+		try (Connection connection = DBUtil.getConnection()){
 			System.out.println("V igrata sme");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		finally {
-			connection.close();
-		}
-		
-		
+
+			
 		//String testFilename = "interviewDetails.txt";
 		//EmailSender.sendEmailWithattachment("project.medelin@gmail.com", "proba", "test", testFilename);
 		
