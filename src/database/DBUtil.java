@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class DBUtil {
 	
 	private static final String mySqlUSer = "root";
-	private static final String mySqlPwd = "parola";
+	private static final String mySqlPwd = "root";
 	private static final String mySQLCS = "jdbc:mysql://localhost:3306/mydb";
 	
 	public static Connection getConnection() throws SQLException{
