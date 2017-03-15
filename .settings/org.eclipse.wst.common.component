@@ -2,6 +2,7 @@
     <wb-module deploy-name="ProjectMedelin">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/lib"/>
         <property name="context-root" value="ProjectMedelin"/>
         <property name="java-output-path" value="/ProjectMedelin/bin"/>
     </wb-module>

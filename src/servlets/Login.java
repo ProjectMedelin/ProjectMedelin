@@ -36,14 +36,15 @@ public class Login extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
-		String n = request.getParameter("email");
-		String p = request.getParameter("password");
-
+		String n = request.getParameter("Email");
+		String p = request.getParameter("Password");
+		
+        
 		if (LoginDao.validate(n, p)) {
 			RequestDispatcher rd = request.getRequestDispatcher("/vigrata2.html");
 			rd.forward(request, response);
 		} else {
-			out.print("Sorry username or password error");
+			out.print("Sorry email or password error");
 			RequestDispatcher rd = request.getRequestDispatcher("vigrata.html");
 			rd.include(request, response);
 		}
