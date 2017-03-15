@@ -19,12 +19,8 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/user1/workspace/kursova/ProjectMedelin/lib/mysql-connector-java-5.1.41-bin.jar"/>
 	<classpathentry kind="var" path="TOMCAT_JAR/bootstrap.jar"/>
 	<classpathentry kind="var" path="TOMCAT_JAR/commons-daemon.jar"/>
 	<classpathentry kind="var" path="TOMCAT_JAR/tomcat-juli.jar"/>
-	<classpathentry kind="lib" path="C:/Users/user1/Desktop/apache-tomcat-8.5.12/bin/bootstrap.jar"/>
-	<classpathentry kind="lib" path="C:/Users/user1/Desktop/apache-tomcat-8.5.12/bin/commons-daemon.jar"/>
-	<classpathentry kind="lib" path="C:/Users/user1/Desktop/apache-tomcat-8.5.12/bin/tomcat-juli.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
