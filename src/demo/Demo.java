@@ -39,11 +39,7 @@ public class Demo {
 		
 		ad.getEmployer().reviewApplication();*/
 
-		try (Connection connection = DBUtil.getConnection()){
-			System.out.println("V igrata sme");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		
 
 			
 		//String testFilename = "interviewDetails.txt";
