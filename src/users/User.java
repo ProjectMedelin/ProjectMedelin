@@ -28,6 +28,7 @@ public abstract class User {
 	private double rating;
 	private ArrayList<FeedBack> feedback;
 	private String code;
+	private boolean isVerified = false;
 
 	public User(Profile profile, String email, String password,String code) {
 		
@@ -54,6 +55,14 @@ public abstract class User {
 
 	}
 	
+	public boolean isVerified() {
+		return isVerified;
+	}
+
+	public void setVerified(boolean isVerified) {
+		this.isVerified = isVerified;
+	}
+
 	public String getCode() {
 		return code;
 	}
