@@ -27,13 +27,15 @@ public abstract class User {
 	private String password;
 	private double rating;
 	private ArrayList<FeedBack> feedback;
+	private String code;
 
-	public User(Profile profile, String email, String password) {
+	public User(Profile profile, String email, String password,String code) {
 		
 		this.profile = profile;
 		this.email = email;
 		this.password = password;
 		this.feedback = new ArrayList<>();
+		this.code=code;
 	}
 
 	public void addFeedBack(FeedBack feedback) {
@@ -50,6 +52,10 @@ public abstract class User {
 
 		}
 
+	}
+	
+	public String getCode() {
+		return code;
 	}
 
 	public Profile getProfile() {

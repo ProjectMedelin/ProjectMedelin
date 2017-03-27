@@ -7,9 +7,9 @@ public class ProfileFactory {
 	public Profile createProfile(String type, String name, EmplooyerType employerType) {
 		DeveloperProfile dev = null;
 		if (type.equals("developer")) {
-			return new DeveloperProfile(name);
+			return new DeveloperProfile();
 		} else if (type.equals("employer")) {
-			return new EmplooyerProfile(name, EmplooyerType.PRIVATE);
+			return new EmplooyerProfile( EmplooyerType.PRIVATE);
 		}
 		return dev;
 	}

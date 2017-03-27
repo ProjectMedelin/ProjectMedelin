@@ -45,7 +45,8 @@ public class Demo {
 		//String testFilename = "interviewDetails.txt";
 		//EmailSender.sendEmailWithattachment("project.medelin@gmail.com", "proba", "test", testFilename);
 		
-		
-		
+		EmailSender.sendSimpleEmail("krmn1@abv.bg", "memememe", "memememe");
+		System.out.println("done");
+	    
 	}
 }
