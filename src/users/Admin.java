@@ -16,10 +16,10 @@ public class Admin extends User implements Moderator {
 	Scanner scan = new Scanner(System.in);
 	private static final String PASSWORD_ADMIN="parolamedelin12*";
 	private static final String EMAIL_ADMIN="project.medelin@gmail.com";
-
+	private static final String CODE="asdf12";
 
 	public Admin() {
-       super(null, EMAIL_ADMIN, PASSWORD_ADMIN);
+       super(null, EMAIL_ADMIN, PASSWORD_ADMIN, CODE);
 	}
 
 	@Override

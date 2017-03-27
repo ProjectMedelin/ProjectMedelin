@@ -22,8 +22,8 @@ public class Employer extends User implements Offerable {
 	private static int counter = 0;
 	private HashMap<Ads, ArrayList<Developer>> applications;
 
-	public Employer(Profile profile, String email, String password) {
-		super(profile, email, password);
+	public Employer(Profile profile, String email, String password, String code) {
+		super(profile, email, password,code);
 		this.ads = new ArrayList<>();
 		this.offers = new ArrayList<>();
 		this.developers = new ArrayList<>();

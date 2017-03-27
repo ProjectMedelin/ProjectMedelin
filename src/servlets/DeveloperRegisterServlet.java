@@ -8,12 +8,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import platform.EmailSender;
 import platform.UserDao;
 import profile.DeveloperProfile;
 import profile.Profile;
 import users.Developer;
 import users.User;
+import validators.CodeGenerator;
 import validators.EmailValidator;
 import validators.PasswordValidator;
 
@@ -28,26 +31,32 @@ public class DeveloperRegisterServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		String code = new CodeGenerator().createCode();
+		
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		User user = null;
 		if (passValidator.validate(password) && emailValidator.validate(email)) {
-			user = new Developer(new DeveloperProfile(), email, password);
+			user = new Developer(new DeveloperProfile(), email, password,code);
+			if (!UserDao.getInstance().save(user)) {
+				System.out.println("maikata si ebava");
+				RequestDispatcher view = request.getRequestDispatcher("/devregister.html"); // TODO
+				view.forward(request, response);
+			} else {
+				HttpSession session = request.getSession(true);
+				session.setAttribute("currentSessionUser", user);
+				RequestDispatcher view = request.getRequestDispatcher("/signupWelcome.html");
+				EmailSender.sendSimpleEmail(email,"Medellin verification code", "Your code is: " + code);
+				view.forward(request, response);
+			}
+
 		} else {
+			RequestDispatcher view = request.getRequestDispatcher("/devregister.html");
 			System.out.println("Invalid password or email");
 			// RequestDispatcher view =
 			// request.getRequestDispatcher("/vigrata.html");
 		}
 
-		if (!UserDao.getInstance().save(user)) {
-			System.out.println("maikata si ebava");
-			RequestDispatcher view = request.getRequestDispatcher("/devregister.html"); // TODO
-			view.forward(request, response);
-		} else {
-            RequestDispatcher view = request.getRequestDispatcher("/verify.html");
-			view.forward(request, response);
-		}
 	}
 
 }
