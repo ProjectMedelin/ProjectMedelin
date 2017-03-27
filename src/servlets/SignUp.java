@@ -18,8 +18,7 @@ public class SignUp extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 RequestDispatcher view = request.getRequestDispatcher("/vigrata.html");
-	        // don't add your web-app name to the path
-	       System.out.println("wtf");
+	        
 	        view.forward(request, response);
 	}
 
