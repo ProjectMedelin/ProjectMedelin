@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 		} else {
 			out.print("Sorry email or password error");
 			RequestDispatcher rd = request.getRequestDispatcher("vigrata.html");
-			rd.include(request, response);
+			rd.forward(request, response);
 		}
 
 		out.close();
