@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import platform.LoginDao;
+import platform.UserDao;
 
 /**
  * Servlet implementation class Login
  */
 @WebServlet("/LoginAndSignup")
-public class Login extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,9 +38,8 @@ public class Login extends HttpServlet {
 
 		String n = request.getParameter("Email");
 		String p = request.getParameter("Password");
-		
-        
-		if (LoginDao.validate(n, p)) {
+
+		if (UserDao.getInstance().validate(n, p)) {
 			RequestDispatcher rd = request.getRequestDispatcher("/vigrata2.html");
 			rd.forward(request, response);
 		} else {

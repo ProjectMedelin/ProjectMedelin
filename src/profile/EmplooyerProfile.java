@@ -8,9 +8,8 @@ public class EmplooyerProfile extends Profile {
 
 	private EmplooyerType type;
 
-	public EmplooyerProfile(String name, EmplooyerType type) {
-		super(name);
+	public EmplooyerProfile(EmplooyerType type) {
 		this.type = type;
 	}
-	
+
 }

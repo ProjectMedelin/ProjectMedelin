@@ -11,14 +11,11 @@ public abstract class Profile {
 	private File video;
 	private String website;
 
+	public Profile() {}
 
-	public Profile(String name) {
+	public void setName(String name) {
 		this.name = name;
-		
 	}
-	
-
-	
 
 	public void addProfilePic(File profilePic) {
 		System.out.println("Pls add profile picture");
@@ -51,7 +48,7 @@ public abstract class Profile {
 			this.website = web;
 		}
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
