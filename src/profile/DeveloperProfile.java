@@ -13,8 +13,8 @@ public class DeveloperProfile extends Profile implements TechOwner {
 	private String github;
 	private String linkedIn;
 
-	public DeveloperProfile(String name) {
-		super(name);
+	public DeveloperProfile() {
+		
 	}
 
 	public void addTechnology() {
