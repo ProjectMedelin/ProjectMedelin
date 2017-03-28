@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import platform.EmailSender;
+import platform.ProfileDao;
 import platform.UserDao;
 import profile.DeveloperProfile;
 import profile.Profile;
@@ -45,6 +46,7 @@ public class DeveloperRegisterServlet extends HttpServlet {
 			} else {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("currentSessionUser", user);
+				ProfileDao.setProfile(user.getProfile(), email);
 				RequestDispatcher view = request.getRequestDispatcher("/signupWelcome.html");
 				EmailSender.sendSimpleEmail(email,"Medellin verification code", "Your code is: " + code);
 				view.forward(request, response);

@@ -31,8 +31,7 @@ public class AdsDao {
 				allAds.add(ad);
 
 			}
-		}
-		 catch (SQLException e) {
+		} catch (SQLException e) {
 			System.out.println("Cannot login");
 			System.out.println(e);
 		}
