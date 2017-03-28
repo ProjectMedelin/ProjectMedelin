@@ -28,11 +28,12 @@ public class UserDao {
 	public synchronized boolean save(User user) {
 
 		try {
-			String sql = "INSERT INTO users (email,password) " + "VALUES(?,?)";
+			String sql = "INSERT INTO users (email,password,role) " + "VALUES(?,?,?)";
 			PreparedStatement statement = DBUtil.getInstance().getConnection().prepareStatement(sql);
 
 			statement.setString(1, user.getEmail());
 			statement.setString(2, user.getPassword());
+			statement.setString(3, user.getRole());
 			int isAdded = statement.executeUpdate();
 			if (isAdded > 0) {
 				System.out.println("Saving  successful.");

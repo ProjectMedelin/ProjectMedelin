@@ -28,20 +28,19 @@ import validators.PasswordValidator;
 public class DeveloperRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private PasswordValidator passValidator = new PasswordValidator();
-	private EmailValidator emailValidator = new EmailValidator();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String code = new CodeGenerator().createCode();
+		String code = CodeGenerator.createCode();
 		
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		User user = null;
-		if (passValidator.validate(password) && emailValidator.validate(email)) {
+		if (passValidator.validate(password) && EmailValidator.validate(email)) {
 			user = new Developer(new DeveloperProfile(), email, password,code, "developer");
 			if (!UserDao.getInstance().save(user)) {
 				System.out.println("maikata si ebava");
-				RequestDispatcher view = request.getRequestDispatcher("/devregister.html"); // TODO
+				RequestDispatcher view = request.getRequestDispatcher("/devregister.html");
 				view.forward(request, response);
 			} else {
 				HttpSession session = request.getSession(true);
@@ -55,8 +54,8 @@ public class DeveloperRegisterServlet extends HttpServlet {
 		} else {
 			RequestDispatcher view = request.getRequestDispatcher("/devregister.html");
 			System.out.println("Invalid password or email");
-			// RequestDispatcher view =
-			// request.getRequestDispatcher("/vigrata.html");
+			view.forward(request, response);
+
 		}
 
 	}
