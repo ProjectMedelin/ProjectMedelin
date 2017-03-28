@@ -16,8 +16,20 @@ public class DeveloperProfile extends Profile implements TechOwner {
 	public DeveloperProfile() {
 		
 	}
-
-	public void addTechnology() {
+	
+	public File getCV() {
+		return CV;
+	}
+	
+	public String getLinkedIn() {
+		return linkedIn;
+	}
+	
+	public String getGithub() {
+		return github;
+	}
+	
+    public void addTechnology() {
 		this.technologies = addTechno();
 	}
 

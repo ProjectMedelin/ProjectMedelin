@@ -17,6 +17,23 @@ public abstract class Profile {
 		this.name = name;
 	}
 
+	public File getProfilePicture() {
+		return profilePicture;
+	}
+	
+	public String getAbout() {
+		return about;
+	}
+	
+	public File getVideo() {
+		return video;
+	}
+	
+	public String getWebsite() {
+		return website;
+	}
+	
+	
 	public void addProfilePic(File profilePic) {
 		System.out.println("Pls add profile picture");
 		if (profilePic.isFile()) {

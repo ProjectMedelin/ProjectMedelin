@@ -37,5 +37,5 @@ public class VerifyServlet extends HttpServlet {
 		user.setVerified(true);
 		view.forward(request, response);
 	}
-	
+
 }
