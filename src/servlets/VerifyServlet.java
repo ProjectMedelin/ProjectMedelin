@@ -16,9 +16,6 @@ import com.mysql.jdbc.PreparedStatement;
 import platform.EmailSender;
 import users.User;
 
-/**
- * Servlet implementation class VerifyServlet
- */
 @WebServlet("/verify")
 public class VerifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

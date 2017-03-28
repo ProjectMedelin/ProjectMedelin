@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import platform.EmailSender;
+import platform.ProfileDao;
 import platform.UserDao;
 import profile.DeveloperProfile;
 import profile.EmplooyerProfile;
@@ -22,32 +23,29 @@ import validators.CodeGenerator;
 import validators.EmailValidator;
 import validators.PasswordValidator;
 
-/**
- * Servlet implementation class CompanyRegisterServlet
- */
 @WebServlet("/CompanyRegister")
 public class CompanyRegisterServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private PasswordValidator passValidator = new PasswordValidator();
-	private EmailValidator emailValidator = new EmailValidator();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String code = new CodeGenerator().createCode();
+		String code = CodeGenerator.createCode();
 		
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		User user = null;
-		if (passValidator.validate(password) && emailValidator.validate(email)) {
+		if (passValidator.validate(password) && EmailValidator.validate(email)) {
 			user = new Employer(new EmplooyerProfile(EmplooyerType.COMPANY), email, password,code, "company");
 			if (!UserDao.getInstance().save(user)) {
 				System.out.println("maikata si ebava");
-				RequestDispatcher view = request.getRequestDispatcher("/devregister.html"); // TODO
+				RequestDispatcher view = request.getRequestDispatcher("/devregister.html");
 				view.forward(request, response);
 			} else {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("currentSessionUser", user);
+				ProfileDao.setProfile(user.getProfile(), email);
 				RequestDispatcher view = request.getRequestDispatcher("/signupWelcome.html");
 				EmailSender.sendSimpleEmail(email,"Medellin verification code", "Your code is: " + code);
 				view.forward(request, response);
@@ -56,8 +54,8 @@ public class CompanyRegisterServlet extends HttpServlet {
 		} else {
 			RequestDispatcher view = request.getRequestDispatcher("/devregister.html");
 			System.out.println("Invalid password or email");
-			// RequestDispatcher view =
-			// request.getRequestDispatcher("/vigrata.html");
+			view.forward(request, response);
+
 		}
 
 	}
