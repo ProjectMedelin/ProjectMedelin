@@ -9,6 +9,7 @@ public abstract class User {
 	public static class FeedBack {
 		private String feedback;
 		private double rating;
+		
 
 		public FeedBack(String feedback, double rating) {
 			// if(feedback!=null&&!feedback.isEmpty()){
@@ -29,9 +30,11 @@ public abstract class User {
 	private ArrayList<FeedBack> feedback;
 	private String code;
 	private boolean isVerified = false;
+	private String role;
 
-	public User(Profile profile, String email, String password,String code) {
+	public User(Profile profile, String email, String password,String code, String role) {
 		
+		this.role = role;
 		this.profile = profile;
 		this.email = email;
 		this.password = password;
@@ -55,6 +58,10 @@ public abstract class User {
 
 	}
 	
+	public String getRole() {
+		return role;
+	}
+
 	public boolean isVerified() {
 		return isVerified;
 	}

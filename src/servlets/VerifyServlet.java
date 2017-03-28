@@ -33,9 +33,22 @@ public class VerifyServlet extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("/signupWelcome.html");
 			view.forward(request, response);
 		}
-		RequestDispatcher view = request.getRequestDispatcher("/vigrata2.html");
-		user.setVerified(true);
-		view.forward(request, response);
+		if (user.getRole().equals("developer")) {
+			RequestDispatcher view = request.getRequestDispatcher("/updateDevProfile.html");
+			user.setVerified(true);
+			view.forward(request, response);
+		}
+		else if (user.getRole().equals("company")) {
+			RequestDispatcher view = request.getRequestDispatcher("/updateCompProfile.html");
+			user.setVerified(true);
+			view.forward(request, response);
+		}
+		else {
+			RequestDispatcher view = request.getRequestDispatcher("/updatePrivateProfile.html");
+			user.setVerified(true);
+			view.forward(request, response);
+		}
+		
 	}
 
 }

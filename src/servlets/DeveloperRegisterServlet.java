@@ -37,7 +37,7 @@ public class DeveloperRegisterServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		User user = null;
 		if (passValidator.validate(password) && emailValidator.validate(email)) {
-			user = new Developer(new DeveloperProfile(), email, password,code);
+			user = new Developer(new DeveloperProfile(), email, password,code, "developer");
 			if (!UserDao.getInstance().save(user)) {
 				System.out.println("maikata si ebava");
 				RequestDispatcher view = request.getRequestDispatcher("/devregister.html"); // TODO
