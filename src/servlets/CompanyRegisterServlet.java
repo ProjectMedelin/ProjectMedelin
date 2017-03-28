@@ -40,7 +40,7 @@ public class CompanyRegisterServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		User user = null;
 		if (passValidator.validate(password) && emailValidator.validate(email)) {
-			user = new Employer(new EmplooyerProfile(EmplooyerType.COMPANY), email, password,code);
+			user = new Employer(new EmplooyerProfile(EmplooyerType.COMPANY), email, password,code, "company");
 			if (!UserDao.getInstance().save(user)) {
 				System.out.println("maikata si ebava");
 				RequestDispatcher view = request.getRequestDispatcher("/devregister.html"); // TODO

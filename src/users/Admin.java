@@ -19,7 +19,7 @@ public class Admin extends User implements Moderator {
 	private static final String CODE="asdf12";
 
 	public Admin() {
-       super(null, EMAIL_ADMIN, PASSWORD_ADMIN, CODE);
+       super(null, EMAIL_ADMIN, PASSWORD_ADMIN, CODE, "Admin");
 	}
 
 	@Override

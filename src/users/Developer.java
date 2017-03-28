@@ -20,8 +20,8 @@ public class Developer extends User implements TechOwner, Offerable {
 	private ArrayList<Offer> receivedOffers;
 	private ArrayList<Interview> interviews;
 
-	public Developer(Profile profile, String email, String password, String code) {
-		super(profile, email, password, code);
+	public Developer(Profile profile, String email, String password, String code, String role) {
+		super(profile, email, password, code, role);
 		this.favouriteAds = new ArrayList<>();
 		this.receivedOffers = new ArrayList<>();
 		this.interviews = new ArrayList<>();

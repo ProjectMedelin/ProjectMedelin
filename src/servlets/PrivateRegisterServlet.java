@@ -38,7 +38,7 @@ public class PrivateRegisterServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		User user = null;
 		if (passValidator.validate(password) && emailValidator.validate(email)) {
-			user = new Employer(new EmplooyerProfile(EmplooyerType.PRIVATE), email, password,code);
+			user = new Employer(new EmplooyerProfile(EmplooyerType.PRIVATE), email, password,code, "private");
 			if (!UserDao.getInstance().save(user)) {
 				System.out.println("maikata si ebava");
 				RequestDispatcher view = request.getRequestDispatcher("/devregister.html"); // TODO
