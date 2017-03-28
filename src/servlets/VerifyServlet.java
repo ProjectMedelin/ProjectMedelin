@@ -33,7 +33,7 @@ public class VerifyServlet extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("/signupWelcome.html");
 			view.forward(request, response);
 		}
-		RequestDispatcher view = request.getRequestDispatcher("/vigrata.html");
+		RequestDispatcher view = request.getRequestDispatcher("/vigrata2.html");
 		user.setVerified(true);
 		view.forward(request, response);
 	}

@@ -19,7 +19,6 @@ public class Developer extends User implements TechOwner, Offerable {
 	private ArrayList<Ads> favouriteAds;
 	private ArrayList<Offer> receivedOffers;
 	private ArrayList<Interview> interviews;
-	
 
 	public Developer(Profile profile, String email, String password, String code) {
 		super(profile, email, password, code);
@@ -32,7 +31,11 @@ public class Developer extends User implements TechOwner, Offerable {
 	public ArrayList<Ads> getFavouriteAds() {
 		return favouriteAds;
 	}
-	
+
+	public void setProfile(DeveloperProfile prof) {
+		this.profile = prof;
+	}
+
 	public void reviewOffers() {
 		if (counter >= receivedOffers.size()) {
 			System.out.println("There is no more offers");
@@ -86,7 +89,7 @@ public class Developer extends User implements TechOwner, Offerable {
 		}
 	}
 
-	public void removeOfferByAd(Ads add,Moderator mod) {
+	public void removeOfferByAd(Ads add, Moderator mod) {
 		for (Offer offer : this.receivedOffers) {
 			if (offer.getAds().equals(add)) {
 				this.receivedOffers.remove(offer);
