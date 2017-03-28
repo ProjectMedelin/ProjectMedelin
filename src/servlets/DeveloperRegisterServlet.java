@@ -24,7 +24,7 @@ import validators.PasswordValidator;
 /**
  * Servlet implementation class SignUp
  */
-@WebServlet("/SignUp")
+@WebServlet("/DevRegister")
 public class DeveloperRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private PasswordValidator passValidator = new PasswordValidator();
