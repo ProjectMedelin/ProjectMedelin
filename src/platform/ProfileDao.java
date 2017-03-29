@@ -26,7 +26,7 @@ public class ProfileDao {
 			String quuery = "INSERT INTO profile (user_profile_id) " + "VALUES(?)";
 			statement = DBUtil.getInstance().getConnection().prepareStatement(quuery);
 			statement.setInt(1, idOfUser);
-			statement.executeQuery();
+			statement.executeUpdate();
 			System.out.println("NA MAIKA TI");
 		} catch (SQLException e) {
 			System.out.println("Cannot save to database - " + e.getClass().getName() + " " + e.getMessage());
