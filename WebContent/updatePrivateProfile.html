@@ -92,24 +92,24 @@
           </div>
           <h3>Private Employer info</h3>
 
-          <form class="form-horizontal" role="form">
+           <form class="form-update" action="UpdatePrivateProfile" method="post">
             <div class="form-group">
               <label class="col-lg-3 control-label">Full Name:</label>
               <div class="col-lg-8">
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" name = "name">
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-lg-3 control-label">Website:</label>
               <div class="col-lg-8">
-                <input class="form-control" type="text" value="">
+                <input class="form-control" type="text" value="" name = "website">
               </div>
             </div>
             <div class="form-group">
               <label class="col-lg-3 control-label">Email:</label>
               <div class="col-lg-8">
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" name = "email">
               </div>
             </div>
             <div class="form-group">
@@ -118,19 +118,20 @@
                 <div class="ui-select">
                   <textarea id="myTextarea" placeholder="Write something about your company"></textarea>
                 </div>
+                 <input class="form-control" type="text" name="about">
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-3 control-label">Youtube:</label>
               <div class="col-md-8">
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" name = "video">
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-md-3 control-label"></label>
               <div class="col-md-8">
-                <input type="button" class="btn btn-primary" value="Save Changes">
+                <button class="btn btn-primary" type="submit">Save Changes</button>
                 <span></span>
                 <input type="reset" class="btn btn-default" value="Cancel">
               </div>

@@ -94,5 +94,29 @@ public class ProfileDao {
 		}
 		return true;
 	}
+	
+	public static synchronized boolean saveEmployerPrivate(EmplooyerProfile profEmp) {
+
+		try {
+			String sql = "UPDATE profiles SET name=?,type=?,video=?,about=?,website=? where user_profile_id=?";
+			PreparedStatement statement = DBUtil.getInstance().getConnection().prepareStatement(sql);
+			statement.setString(1, profEmp.getName());
+			statement.setString(2, "private");
+			statement.setString(3, profEmp.getVideo());
+			statement.setString(4, profEmp.getAbout());
+			statement.setString(5, profEmp.getWebsite());
+			statement.setInt(6, id);
+			int isAdded = statement.executeUpdate();
+			if (isAdded > 0) {
+				System.out.println("Saving  successful.");
+				return true;
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Cannot save to database - " + e.getClass().getName() + " " + e.getMessage());
+			return false;
+		}
+		return true;
+	}
 
 }
