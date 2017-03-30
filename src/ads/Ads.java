@@ -8,11 +8,6 @@ import users.Employer;
 
 public class Ads implements TechOwner {
 
-	public enum Experience {
-		INTERN, JUNIOR, EXPERIENCED
-	}
-
-	private Experience experience;
 	private String title;
 	private String desctription;
 	private String requirenments;
@@ -20,18 +15,29 @@ public class Ads implements TechOwner {
 	private ArrayList<Technologies> reqTech;
 	private Employer employer;
 
-	public Ads(String title, String desctription, String requirenments, String conditions, Experience experience, Employer employer) {
+	public Ads(String title, String desctription, String requirenments, String conditions, Employer employer) {
 		this.title = title;
 		this.desctription = desctription;
 		this.requirenments = requirenments;
 		this.conditions = conditions;
 		this.reqTech = new ArrayList<>();
-		this.experience = experience;
 		this.employer = employer;
 	}
-	
+
 	public String getTitle() {
 		return title;
+	}
+
+	public String getConditions() {
+		return conditions;
+	}
+
+	public String getDesctription() {
+		return desctription;
+	}
+
+	public String getRequirenments() {
+		return requirenments;
 	}
 
 	public void addIn(Technologies tech) {
@@ -42,8 +48,6 @@ public class Ads implements TechOwner {
 		this.reqTech = addTechno();
 
 	}
-	
-    	
 
 	public void adEmployer(Employer emp) {
 		this.employer = emp;
@@ -59,9 +63,8 @@ public class Ads implements TechOwner {
 
 	@Override
 	public String toString() {
-		return "Ads [experience=" + experience + ", title=" + title + ", desctription=" + desctription
-				+ ", requirenments=" + requirenments + ", conditions=" + conditions + ", employer="
-				+ employer.getProfile().getName() + "]";
+		return "Ads [title=" + title + ", desctription=" + desctription + ", requirenments=" + requirenments
+				+ ", conditions=" + conditions + ", employer=" + employer.getProfile().getName() + "]";
 	}
 
 }

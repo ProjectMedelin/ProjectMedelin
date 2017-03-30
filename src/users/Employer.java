@@ -6,7 +6,6 @@ import java.util.Map.Entry;
 import java.util.Scanner;
 
 import ads.Ads;
-import ads.Ads.Experience;
 import ads.Interview;
 import ads.Offer;
 import interfaces.Moderator;
@@ -54,8 +53,8 @@ public class Employer extends User implements Offerable {
 		this.developers.add(developer);
 	}
 
-	public void createAd(String title, String desctription, String requirenments, String conditions, Experience xp) {
-		Ads ad = new Ads(title, desctription, requirenments, conditions, xp, this);
+	public void createAd(String title, String desctription, String requirenments, String conditions) {
+		Ads ad = new Ads(title, desctription, requirenments, conditions,  this);
 		ad.addTechnology();
 		this.ads.add(ad);
 	}
