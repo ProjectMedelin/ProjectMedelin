@@ -34,18 +34,16 @@ public class VerifyServlet extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("/updateDevProfile.html");
 			user.setVerified(true);
 			view.forward(request, response);
-		}
-		else if (user.getRole().equals("company")) {
+		} else if (user.getRole().equals("company")) {
 			RequestDispatcher view = request.getRequestDispatcher("/updateCompProfile.html");
 			user.setVerified(true);
 			view.forward(request, response);
-		}
-		else {
+		} else {
 			RequestDispatcher view = request.getRequestDispatcher("/updatePrivateProfile.html");
 			user.setVerified(true);
 			view.forward(request, response);
 		}
-		
+
 	}
 
 }

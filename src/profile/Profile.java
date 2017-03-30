@@ -8,38 +8,42 @@ public abstract class Profile {
 	private String name;
 	protected File profilePicture;
 	protected String about;
-	private File video;
+	private String video;
 	private String website;
 
-	public Profile() {}
+	public Profile() {
+	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+	
 	public File getProfilePicture() {
 		return profilePicture;
 	}
-	
+
 	public String getAbout() {
 		return about;
 	}
-	
-	public File getVideo() {
+	public void setAbout(String about) {
+		this.about = about;
+	}
+
+	public String getVideo() {
 		return video;
 	}
-	
+
 	public String getWebsite() {
 		return website;
 	}
-	
-	
-	public void addProfilePic(File profilePic) {
-		System.out.println("Pls add profile picture");
-		if (profilePic.isFile()) {
-			this.profilePicture = profilePic;
-		} else {
-			addProfilePic(profilePic);
+
+	public void setProfilePicture(File profilePicture) {
+		if (profilePicture.exists()) {
+			this.profilePicture = profilePicture;
 		}
 	}
 
@@ -50,15 +54,15 @@ public abstract class Profile {
 		}
 	}
 
-	public void addVideo(File video) {
-		System.out.println("Pls add your video");
-		if (video.isFile()) {
-			this.video = video;
-		} else {
-			addProfilePic(video);
-		}
+	public void setVideo(String video) {
+		this.video = video;
 	}
 
+	/*
+	 * public void addVideo(String video) {
+	 * System.out.println("Pls add your video"); if (video.isEmpty()) {
+	 * this.video = video; } else { addProfilePic(video); } }
+	 */
 	public void addWebsite(String web) {
 		System.out.println("Pls add your website");
 		if (web != null && !web.isEmpty()) {
