@@ -44,7 +44,7 @@ public class UpdateCompProfileServlet extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("/updateCompProfile.html");
 			view.forward(request, response);
 		} else {
-			RequestDispatcher view = request.getRequestDispatcher("/compProfile.html");
+			RequestDispatcher view = request.getRequestDispatcher("/compProfile.jsp");
 			view.forward(request, response);
 
 		}

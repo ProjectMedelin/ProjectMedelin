@@ -1,5 +1,7 @@
 package profile;
 
+import profile.EmplooyerProfile.EmplooyerType;
+
 public class EmplooyerProfile extends Profile {
 
 	public enum EmplooyerType {
@@ -9,7 +11,7 @@ public class EmplooyerProfile extends Profile {
 	private EmplooyerType type;
 
 	public EmplooyerProfile(EmplooyerType type) {
-		this.type = type;
+		this.type=type;
 	}
 
 }

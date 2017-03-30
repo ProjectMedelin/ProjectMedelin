@@ -12,6 +12,7 @@ import database.DBUtil;
 import platform.AdsDao;
 import platform.EmailSender;
 import platform.Platform;
+import platform.ProfileDao;
 import profile.DeveloperProfile;
 import profile.EmplooyerProfile;
 import profile.EmplooyerProfile.EmplooyerType;
@@ -59,6 +60,7 @@ public class Demo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	    
 	}
 }
