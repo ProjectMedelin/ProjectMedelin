@@ -25,14 +25,15 @@ public class AdsDao {
 		}
 
 		try {
-			String query = "INSERT into ads (title,description,requirements,conditions,user_ads_id)"
-					+ "VALUES(?,?,?,?,?)";
+			String query = "INSERT into ads (title,description,requirements,conditions,id_platform_ads,user_ads_id)"
+					+ "VALUES(?,?,?,?,?,?)";
 			PreparedStatement statement = DBUtil.getInstance().getConnection().prepareStatement(query);
 			statement.setString(1, ad.getTitle());
 			statement.setString(2, ad.getDesctription());
 			statement.setString(3, ad.getRequirenments());
 			statement.setString(4, ad.getConditions());
-			statement.setInt(5, userID);
+			statement.setInt(5, 1);
+			statement.setInt(6, userID);
 			int isAdded = statement.executeUpdate();
 			if (isAdded > 0) {
 				System.out.println("Saving  successful.");

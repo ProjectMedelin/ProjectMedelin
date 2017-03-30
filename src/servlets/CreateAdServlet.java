@@ -28,21 +28,23 @@ public class CreateAdServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int id=0;
+		int id = 0;
 		String title = request.getParameter("title");
 		String description = request.getParameter("description");
-		String requirenments = request.getParameter("requirements");
+		String requirenments = request.getParameter("requirenments");
 		String conditions = request.getParameter("conditions");
 		HttpSession session = request.getSession();
 		Employer user = (Employer) session.getAttribute("currentSessionUser");
 		String sql = "SELECT id from users where email=?";
 		try {
 			PreparedStatement st = DBUtil.getInstance().getConnection().prepareStatement(sql);
+			st.setString(1, user.getEmail());
 			ResultSet rs = st.executeQuery();
 			rs.next();
 			id = rs.getInt("id");
+			System.out.println(id);
 			Ads ad = new Ads(title, description, requirenments, conditions, user);
-			if(!AdsDao.createAd(ad, id)){
+			if (!AdsDao.createAd(ad, id)) {
 				RequestDispatcher view = request.getRequestDispatcher("/createAd.html");
 				view.forward(request, response);
 			} else {
@@ -52,8 +54,7 @@ public class CreateAdServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		
+
 	}
 
 }
