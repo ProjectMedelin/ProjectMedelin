@@ -12,9 +12,9 @@ import profile.Profile;
 import users.User;
 
 public class ProfileDao {
-  
+
 	private static int id;
-	
+
 	public static synchronized void setProfile(Profile profile, String email) {
 		System.out.println("na maika ti dva pyti");
 		System.out.println(email);
@@ -26,9 +26,10 @@ public class ProfileDao {
 
 			ResultSet rs = statement.executeQuery();
 			rs.next();
-             
+
 			int idOfUser = rs.getInt("id");
-			id=idOfUser;
+			id = idOfUser;
+
 			String quuery = "INSERT INTO profiles (user_profile_id) " + "VALUES(?)";
 			statement = DBUtil.getInstance().getConnection().prepareStatement(quuery);
 			statement.setInt(1, idOfUser);
@@ -49,11 +50,11 @@ public class ProfileDao {
 
 			statement.setString(1, profDev.getName());
 			statement.setString(2, "developer");
-			//statement.setString(3, profDev.getProfilePicture().getPath());
+			// statement.setString(3, profDev.getProfilePicture().getPath());
 			statement.setString(3, profDev.getVideo());
 			statement.setString(4, profDev.getAbout());
 			statement.setString(5, profDev.getWebsite());
-			//statement.setString(7, profDev.getCV().getPath());
+			// statement.setString(7, profDev.getCV().getPath());
 			statement.setString(6, profDev.getGithub());
 			statement.setString(7, profDev.getLinkedIn());
 			statement.setInt(8, id);
