@@ -16,9 +16,6 @@ import com.mysql.jdbc.PreparedStatement;
 import platform.EmailSender;
 import users.User;
 
-/**
- * Servlet implementation class VerifyServlet
- */
 @WebServlet("/verify")
 public class VerifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -37,18 +34,16 @@ public class VerifyServlet extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("/updateDevProfile.html");
 			user.setVerified(true);
 			view.forward(request, response);
-		}
-		else if (user.getRole().equals("company")) {
+		} else if (user.getRole().equals("company")) {
 			RequestDispatcher view = request.getRequestDispatcher("/updateCompProfile.html");
 			user.setVerified(true);
 			view.forward(request, response);
-		}
-		else {
+		} else {
 			RequestDispatcher view = request.getRequestDispatcher("/updatePrivateProfile.html");
 			user.setVerified(true);
 			view.forward(request, response);
 		}
-		
+
 	}
 
 }
