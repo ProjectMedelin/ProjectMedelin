@@ -48,17 +48,19 @@ public class AdsDao {
 
 	}
 
-	public synchronized ArrayList<Ads> getAllAds() throws ClassNotFoundException {
+	public static synchronized ArrayList<Ads> getAllAds() throws ClassNotFoundException {
 		boolean status;
 		ArrayList<Ads> allAds = new ArrayList<>();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String query = "SELECT * d.name FROM users e JOIN ads d on d.user_ads = es";
+			String query = "SELECT id_ads,title,description,requirements,conditions,user_ads_id from mydb.ads;";
 			PreparedStatement ps = DBUtil.getInstance().getConnection().prepareStatement(query);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				Ads ad = new Ads(rs.getString("title"), rs.getString("description"), rs.getString("requirenments"),
+				Ads ad = new Ads(rs.getString("title"), rs.getString("description"), rs.getString("requirements"),
 						rs.getString("conditions"), null);
+				ad.setIdAds(rs.getInt("id_ads"));
+				ad.setOwnerID(rs.getInt("user_ads_id"));
 				allAds.add(ad);
 
 			}
@@ -67,5 +69,24 @@ public class AdsDao {
 			System.out.println(e);
 		}
 		return allAds;
+	}
+
+	public static synchronized String getOwnerName(Ads ad) {
+		System.out.println(ad.getOwnerID());
+
+		String sql = "Select * from users where id=?";
+		String name = null;
+		try {
+			PreparedStatement statement = DBUtil.getInstance().getConnection().prepareStatement(sql);
+			statement.setInt(1, ad.getOwnerID());
+			ResultSet rs = statement.executeQuery();
+			rs.next();
+			name = rs.getString("email");
+			return name;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return name;
 	}
 }

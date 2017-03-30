@@ -51,6 +51,11 @@ public class Platform {
 
 	}
 
+	
+	public void adAds(Ads ad){
+		this.adsCatalog.add(ad);
+	}
+	
 	public static Platform getInstance() {
 		if (instance == null) {
 			instance = new Platform();

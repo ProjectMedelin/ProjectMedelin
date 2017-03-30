@@ -2,6 +2,7 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import database.DBUtil;
 import platform.UserDao;
 
 @WebServlet("/LoginAndSignup")
@@ -31,11 +33,12 @@ public class LoginServlet extends HttpServlet {
 		String p = request.getParameter("Password");
 
 		if (UserDao.getInstance().validate(n, p)) {
-			RequestDispatcher rd = request.getRequestDispatcher("/vigrata2.html");
+			RequestDispatcher rd = request.getRequestDispatcher("main.html");
 			rd.forward(request, response);
 		} else {
+
+			RequestDispatcher rd = request.getRequestDispatcher("index.html");
 			out.print("Sorry email or password error");
-			RequestDispatcher rd = request.getRequestDispatcher("vigrata.html");
 			rd.forward(request, response);
 		}
 
@@ -43,4 +46,11 @@ public class LoginServlet extends HttpServlet {
 
 	}
 
+	@Override
+	public void destroy() {
+		try {
+			DBUtil.getInstance().getConnection().close();
+		} catch (SQLException e) {
+		}
+	}
 }

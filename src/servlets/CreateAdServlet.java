@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import ads.Ads;
 import database.DBUtil;
 import platform.AdsDao;
+import platform.Platform;
 import users.Employer;
 import users.User;
 
@@ -44,11 +45,13 @@ public class CreateAdServlet extends HttpServlet {
 			id = rs.getInt("id");
 			System.out.println(id);
 			Ads ad = new Ads(title, description, requirenments, conditions, user);
+			user.getAdds().add(ad);
+			Platform.getInstance().adAds(ad);
 			if (!AdsDao.createAd(ad, id)) {
 				RequestDispatcher view = request.getRequestDispatcher("/createAd.html");
 				view.forward(request, response);
 			} else {
-				RequestDispatcher view = request.getRequestDispatcher("/Ad.html");
+				RequestDispatcher view = request.getRequestDispatcher("/createAd.html");
 				view.forward(request, response);
 			}
 		} catch (SQLException e) {

@@ -14,6 +14,8 @@ public class Ads implements TechOwner {
 	private String conditions;
 	private ArrayList<Technologies> reqTech;
 	private Employer employer;
+	private int idAds;
+	private int ownerID;
 
 	public Ads(String title, String desctription, String requirenments, String conditions, Employer employer) {
 		this.title = title;
@@ -22,6 +24,22 @@ public class Ads implements TechOwner {
 		this.conditions = conditions;
 		this.reqTech = new ArrayList<>();
 		this.employer = employer;
+	}
+	
+	public void setOwnerID(int ownerID) {
+		this.ownerID = ownerID;
+	}
+	
+	public int getOwnerID() {
+		return ownerID;
+	}
+	
+	public void setIdAds(int idAds) {
+		this.idAds = idAds;
+	}
+	
+	public int getIdAds() {
+		return idAds;
 	}
 
 	public String getTitle() {
@@ -64,7 +82,7 @@ public class Ads implements TechOwner {
 	@Override
 	public String toString() {
 		return "Ads [title=" + title + ", desctription=" + desctription + ", requirenments=" + requirenments
-				+ ", conditions=" + conditions + ", employer=" + employer.getProfile().getName() + "]";
+				+ ", conditions=" + conditions +   "]";
 	}
 
 }

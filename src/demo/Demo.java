@@ -2,12 +2,14 @@ package demo;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import ads.Ads;
 
 import ads.Interview;
 import ads.Offer;
 import database.DBUtil;
+import platform.AdsDao;
 import platform.EmailSender;
 import platform.Platform;
 import profile.DeveloperProfile;
@@ -45,8 +47,18 @@ public class Demo {
 		//String testFilename = "interviewDetails.txt";
 		//EmailSender.sendEmailWithattachment("project.medelin@gmail.com", "proba", "test", testFilename);
 		
-		EmailSender.sendSimpleEmail("krmn1@abv.bg", "memememe", "memememe");
-		System.out.println("done");
+		//EmailSender.sendSimpleEmail("krmn1@abv.bg", "memememe", "memememe");
+		//System.out.println("done");
+		
+		try {
+			ArrayList<Ads> ads = AdsDao.getAllAds();
+			for (Ads ads2 : ads) {
+				System.out.println(ads);
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    
 	}
 }
