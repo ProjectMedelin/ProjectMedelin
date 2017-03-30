@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 import ads.Ads;
-import ads.Ads.Experience;
 import interfaces.Moderator;
 import ads.Offer;
 import profile.EmplooyerProfile.EmplooyerType;
@@ -84,38 +83,7 @@ public class Platform {
 		return empCatalog;
 	}
 
-	public void createAdds(Employer emp) {
-
-		System.out.println("Enter title: ");
-		String title = sc.nextLine();
-		System.out.println("Enter decription: ");
-		String desctription = sc.nextLine();
-		System.out.println("Enter requirements: ");
-		String requirements = sc.nextLine();
-		System.out.println("Enter conditions: ");
-		String conditions = sc.nextLine();
-		System.out.println("Choose from 0,1,2 for Experience: \n 0 for INTERN \n 1 for JUNIOR \n 2 for EXPERIENCED");
-		int xp = sc.nextInt();
-		Experience exp = null;
-		switch (xp) {
-		case 0:
-			exp = Experience.INTERN;
-			break;
-		case 1:
-			exp = Experience.JUNIOR;
-			break;
-		case 2:
-			exp = Experience.EXPERIENCED;
-			break;
-		default:
-			break;
-		}
-		emp.createAd(title, desctription, requirements, conditions, exp);
-		emp.getAdds().get(counter).adEmployer(emp);
-		Ads add = emp.getAdds().get(counter);
-		this.adsCatalog.add(add);
-		counter++;
-	}
+	
 
 	public void printUsers() {
 		for (User usr : users) {

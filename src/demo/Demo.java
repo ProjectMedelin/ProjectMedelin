@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import ads.Ads;
-import ads.Ads.Experience;
+
 import ads.Interview;
 import ads.Offer;
 import database.DBUtil;
