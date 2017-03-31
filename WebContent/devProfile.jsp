@@ -52,13 +52,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#about">Home</a>
+                        <a href="http://localhost:8080/ProjectMedelin/main.jsp">Home</a>
                     </li>
                     <li>
-                        <a href="#services">Services</a>
+                        <a href="http://localhost:8080/ProjectMedelin/devProfile.jsp">My Account</a>
                     </li>
                     <li>
-                        <a href="#contact">Contact</a>
+                        <a href="http://localhost:8080/ProjectMedelin/main.jsp#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -77,10 +77,10 @@
 
         <div class="row">
             <div class="col-sm-8">
-                <h2><% session = request.getSession();
-            		  User user = (User) session.getAttribute("currentSessionUser");
-            		user.getProfile().getName(); %></h2>
-                <p><%user.getProfile().getAbout(); %></p>
+                <h2><% //session = request.getSession();
+            		 // User user = (User) session.getAttribute("currentSessionUser");
+            		//user.getProfile().getName(); %></h2>
+                <p><%//user.getProfile().getAbout(); %></p>
                 <p><%                   %></p>
                 <p>
                     <a href="https://github.com/ProjectMedelin/ProjectMedellin" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name"></span></a>
