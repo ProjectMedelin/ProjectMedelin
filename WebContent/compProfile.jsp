@@ -48,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="http://localhost:8080/ProjectMedelin/index.html">Project Medellin</a>
+                <a class="navbar-brand topnav" href="http://localhost:8080/ProjectMedelin/index.html">Sign out</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

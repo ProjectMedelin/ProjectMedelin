@@ -56,8 +56,7 @@
 					class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand topnav"
-				href="http://localhost:8080/ProjectMedelin/index.html">Project
-				Medellin</a>
+				href="http://localhost:8080/ProjectMedelin/index.html">Sign out</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse"
@@ -66,7 +65,7 @@
 			<% session = request.getSession();%>
 			<% User user = (User)session.getAttribute("currentSessionUser");%>
 			
-				<li><a href="http://localhost:8080/ProjectMedelin/index.html">Home</a></li>
+				<li><a href="http://localhost:8080/ProjectMedelin/main.jsp">Home</a></li>
 				<% if(user instanceof Developer) {%>
 				<li><a href="http://localhost:8080/ProjectMedelin/devProfile.jsp">My Account</a></li>
 				<%} %>

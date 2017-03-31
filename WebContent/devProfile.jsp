@@ -54,16 +54,15 @@
 					class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand topnav"
-				href="http://localhost:8080/ProjectMedelin/index.html">Project
-				Medellin</a>
+				href="http://localhost:8080/ProjectMedelin/index.html">Sign out</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="http://localhost:8080/ProjectMedelin/main.jsp">Home</a></li>
-				<li><a href="#services">Services</a></li>
-				<li><a href="#contact">Contact</a></li>
+				<li><a href="http://localhost:8080/ProjectMedelin/devProfile.jsp">My Account</a></li>
+				<li><a href="http://localhost:8080/ProjectMedelin/main.jsp">Contact</a></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
