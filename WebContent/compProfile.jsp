@@ -54,7 +54,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#about">Home</a>
+                        <a href="http://localhost:8080/ProjectMedelin/main.jsp">Home</a>
                     </li>
                     <li>
                         <a href="#services">Services</a>
