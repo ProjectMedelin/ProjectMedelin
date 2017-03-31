@@ -69,7 +69,7 @@ public class UpdateDevProfileServlet extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("/updateDevProfile.html");
 			view.forward(request, response);
 		} else {
-			RequestDispatcher view = request.getRequestDispatcher("/devProfile.html");
+			RequestDispatcher view = request.getRequestDispatcher("/devProfile.jsp");
 			view.forward(request, response);
 		}
 

@@ -73,7 +73,7 @@ public class DeveloperProfile extends Profile implements TechOwner {
 
 	@Override
 	public String toString() {
-		return "Name: " + super.getName() + "DeveloperProfile [technologies=" + technologies + ", CV=" + CV
+		return "Name: " + super.getName() + " + "
 				+ ", github=" + github + ", linkedIn=" + linkedIn + "]";
 	}
 
