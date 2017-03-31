@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
 		String p = request.getParameter("Password");
 
 		if (UserDao.getInstance().validate(n, p)) {
-			RequestDispatcher rd = request.getRequestDispatcher("main.html");
+			RequestDispatcher rd = request.getRequestDispatcher("main.jsp");
 			rd.forward(request, response);
 		} else {
 

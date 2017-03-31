@@ -108,7 +108,7 @@
                             <td> <%= AdsDao.getOwnerName(ads.get(i)) %></td> 
                             <td><%= ads.get(i).getTitle() %></td> 
 
-                            <td><button style="height: 25px" class="label label-info">Open ad</button></td>
+                            <td><button href="http://localhost:8080/ProcejtMedelin/Ad.jsp" style="height: 25px" class="label label-info">Open ad</button></td>
                         </tr>
                         <%} %>
                         </tbody>
