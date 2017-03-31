@@ -52,7 +52,7 @@ public class CompanyRegisterServlet extends HttpServlet {
 			}
 
 		} else {
-			RequestDispatcher view = request.getRequestDispatcher("/devregister.html");
+			RequestDispatcher view = request.getRequestDispatcher("/index.html");
 			System.out.println("Invalid password or email");
 			view.forward(request, response);
 

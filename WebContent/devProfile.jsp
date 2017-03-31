@@ -169,6 +169,7 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
+>>>>>>> 73b5e999e0b53a2f2b675a99b59ad2c636f2fe89
 
 </body>
 
